@@ -2,43 +2,43 @@ import { defineStore } from 'pinia'
 import { ref, watchEffect } from 'vue'
 
 export interface Exercise {
-  title: string,
-  series: number | unknown,
-  amount: number | unknown,
-  count: number,
+  title: string
+  series: number | unknown
+  amount: number | unknown
+  count: number
   completed: boolean
 }
 
 export const useTask = defineStore('tasks', () => {
-
-  const exercises = ref<Exercise[]>([])
+  const exercises = ref<Exercise[]>(
+    JSON.parse(localStorage.getItem('exercises') || '[]')
+  )
   const pendingExercises = ref<Exercise[]>([])
   const doneExercise = ref<Exercise[]>([])
 
   watchEffect(() => {
-    pendingExercises.value = exercises.value.filter( 
-      (exercise: Exercise) => exercise.completed === false)
+    pendingExercises.value = exercises.value.filter(
+      (exercise: Exercise) => exercise.completed === false
+    )
 
     doneExercise.value = exercises.value.filter(
-      (exercise: Exercise) => exercise.completed === true)
+      (exercise: Exercise) => exercise.completed === true
+    )
 
-      return {
-        pendingExercises,
-        doneExercise
-      }
+    return {
+      pendingExercises,
+      doneExercise,
+    }
   })
 
   const updateExercise = () => {
-    pendingExercises.value = exercises.value.filter( 
-      (exercise: Exercise) => exercise.completed === false)
+    pendingExercises.value = exercises.value.filter(
+      (exercise: Exercise) => exercise.completed === false
+    )
 
     doneExercise.value = exercises.value.filter(
-      (exercise: Exercise) => exercise.completed === true)
-
-      return {
-        pendingExercises,
-        doneExercise
-      }
+      (exercise: Exercise) => exercise.completed === true
+    )
   }
 
   const incrementCounter = (index: number) => {
@@ -47,14 +47,17 @@ export const useTask = defineStore('tasks', () => {
     if (exercise.completed) {
       exercise.count = 0
       changeStatus(index)
+      localStorage.setItem('exercises', JSON.stringify(exercises.value))
       updateExercise()
       return
     }
 
     exercise.count++
+    localStorage.setItem('exercises', JSON.stringify(exercises.value))
 
     if (exercise.count === exercise.series) {
       changeStatus(index)
+      localStorage.setItem('exercises', JSON.stringify(exercises.value))
       updateExercise()
       return
     }
@@ -63,19 +66,22 @@ export const useTask = defineStore('tasks', () => {
   const changeStatus = (index: number) => {
     const exercise: Exercise = exercises.value[index]
     exercise.completed = !exercise.completed
+    updateExercise()
   }
 
   const createExercise = (exercise: Exercise) => {
     exercises.value.unshift(exercise)
+    localStorage.setItem('exercises', JSON.stringify(exercises.value))
     updateExercise()
   }
 
   const filterExercise = (search: string) => {
-    const filteredExercises = exercises.value.filter(
-      (exercise: Exercise) => exercise.title.includes(search))
+    const filteredExercises = exercises.value.filter((exercise: Exercise) =>
+      exercise.title.includes(search)
+    )
 
     return filteredExercises
-  } 
+  }
 
   return {
     exercises,
@@ -84,6 +90,6 @@ export const useTask = defineStore('tasks', () => {
     incrementCounter,
     changeStatus,
     createExercise,
-    filterExercise
+    filterExercise,
   }
 })
