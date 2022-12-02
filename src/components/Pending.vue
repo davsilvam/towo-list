@@ -10,7 +10,9 @@
   <div class="w-full flex flex-col">
     <div class="w-full flex justify-between items-center">
       <h3 class="font-bold text-neutral-100 text-lg">Exercícios pendentes</h3>
-      <RouterLink class="text-xs text-neutral-400 font-semibold" to="/pendentes">Ver todos</RouterLink>
+      <RouterLink class="text-xs text-neutral-400 font-semibold" to="/pendentes"
+        >Ver todos</RouterLink
+      >
     </div>
     <div class="w-full pt-4 flex flex-col gap-2">
       <ExerciseCard

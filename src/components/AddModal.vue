@@ -80,7 +80,9 @@
           </div>
           <div class="grid grid-cols-2 place-items-center">
             <div class="flex flex-col gap-2 items-center">
-              <label for="series" class="text-sm text-neutral-100">Séries</label>
+              <label for="series" class="text-sm text-neutral-100"
+                >Séries</label
+              >
               <input
                 class="w-16 bg-neutral-800 text-neutral-100 text-sm p-2 placeholder:text-neutral-500 rounded-md outline-none"
                 type="number"

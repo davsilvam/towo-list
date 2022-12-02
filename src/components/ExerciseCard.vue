@@ -24,9 +24,13 @@
       >
         <i
           class="ri-check-line text-yellow-500"
-          :class="{ 'hidden': !props.exercise.completed }"
+          :class="{ hidden: !props.exercise.completed }"
         ></i>
-        <span class="hidden text-sm text-neutral-700" :class="{ 'group-hover:block': !props.exercise.completed }">+1</span>
+        <span
+          class="hidden text-sm text-neutral-700"
+          :class="{ 'group-hover:block': !props.exercise.completed }"
+          >+1</span
+        >
       </div>
       <div>
         <h3
@@ -54,8 +58,9 @@
       >
         {{ props.exercise.count + '/' + props.exercise.series }}
       </h3>
-      <i class="ri-close-line hidden text-lg absolute right-0 text-rose-500 group-hover:flex cursor-pointer"
-      @click="deleteExercise(props.id)"
+      <i
+        class="ri-close-line hidden text-lg absolute right-0 text-rose-500 group-hover:flex cursor-pointer"
+        @click="deleteExercise(props.id)"
       ></i>
     </div>
   </div>

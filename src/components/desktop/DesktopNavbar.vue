@@ -29,7 +29,7 @@
     </li>
     <li>
       <RouterLink
-         class="flex h-10 min-w-fit justify-center items-center gap-3 text-neutral-100 font-semibold text-lg hover:bg-yellow-500 rounded-full px-3 py-4"
+        class="flex h-10 min-w-fit justify-center items-center gap-3 text-neutral-100 font-semibold text-lg hover:bg-yellow-500 rounded-full px-3 py-4"
         to="/pendentes"
       >
         <i
@@ -40,7 +40,7 @@
     </li>
     <li>
       <RouterLink
-         class="flex h-10 min-w-fit justify-center items-center gap-3 text-neutral-100 font-semibold text-lg hover:bg-yellow-500 rounded-full px-3 py-4"
+        class="flex h-10 min-w-fit justify-center items-center gap-3 text-neutral-100 font-semibold text-lg hover:bg-yellow-500 rounded-full px-3 py-4"
         to="/concluidos"
       >
         <i
