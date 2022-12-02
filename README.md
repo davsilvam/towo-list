@@ -55,7 +55,7 @@ Veja [documentação de configuração do Vite](https://vitejs.dev/config/) e a 
 ### **Clonando o Projeto**
 
 ```sh
-git clone https://github.com/davsilvam/tomo-list.git
+git clone https://github.com/davsilvam/towo-list.git
 ```
 
 ### **Executando o Projeto**
@@ -78,7 +78,7 @@ npm run build
 
 ## :balance_scale: **Licença**
 
-Esse projeto está sob a [licença MIT](https://github.com/davsilvam/tomo-list/blob/main/LICENSE.md).
+Esse projeto está sob a [licença MIT](https://github.com/davsilvam/towo-list/blob/main/LICENSE.md).
 
 <p align="center">
   Feito com :blue_heart: por <a href="https://www.linkedin.com/in/davsilvam/">David Silva</a>.
