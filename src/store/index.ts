@@ -83,6 +83,16 @@ export const useTask = defineStore('tasks', () => {
     return filteredExercises
   }
 
+  const deleteExercise = (id: number) => {
+    const task = ref<Exercise>(exercises.value[id])
+    const filteredExercises = exercises.value.filter((exercise: Exercise) => 
+      exercise != task.value
+    )
+
+    exercises.value = filteredExercises
+    localStorage.setItem('exercises', JSON.stringify(exercises.value))
+  }
+
   return {
     exercises,
     pendingExercises,
@@ -91,5 +101,6 @@ export const useTask = defineStore('tasks', () => {
     changeStatus,
     createExercise,
     filterExercise,
+    deleteExercise
   }
 })
