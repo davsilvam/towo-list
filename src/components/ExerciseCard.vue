@@ -13,9 +13,10 @@
   <div
     class="w-full lg:max-w-md bg-neutral-800 rounded-r-md px-4 py-2 flex justify-between items-center border-yellow-500 border-l-2"
   >
-    <div class="flex gap-3 items-center" @click="incrementCounter(props.id)">
+    <div class="flex gap-3 items-center">
       <div
         class="w-5 h-5 bg-neutral-900 rounded-md flex items-center justify-center"
+        @click="incrementCounter(props.id)"
       >
         <i
           class="ri-check-line text-yellow-500"
