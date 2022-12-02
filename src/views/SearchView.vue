@@ -39,6 +39,7 @@
         v-if="tasks.exercises.length > 0"
       >
         <ExerciseCard
+          class="max-w-2xl"
           v-for="exercise in filteredTasks"
           :key="tasks.exercises.indexOf(exercise)"
           :exercise="exercise"

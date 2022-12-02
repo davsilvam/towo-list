@@ -16,6 +16,7 @@
     <main class="w-full px-8 grid place-items-center" v-if="tasks.exercises.length > 0">
       <div class="w-full pt-4 flex flex-col items-center gap-2">
         <ExerciseCard
+        class="max-w-2xl"
           v-for="exercise in tasks.doneExercise"
           :key="tasks.exercises.indexOf(exercise)"
           :exercise="exercise"
