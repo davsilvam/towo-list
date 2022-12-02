@@ -8,7 +8,7 @@
 A ToWo List é uma aplicação voltado para o registro de suas atividades físicas, especificamente, atividades que envolvam séries de exercícios. Com ela, você registra a quantidade de repetições por série da sua atividade e acompanha seu progresso até a conclusão da atividade.
 
 <p align="center">
-   <a href="https://tomo-list.vercel.app">Veja o projeto completo aqui.</a>
+   <a href="https://towo-list.vercel.app">Veja o projeto completo aqui.</a>
 </p>
 
 ## :art: **Visual do Projeto**
