@@ -15,17 +15,18 @@
 
 <template>
   <div
-    class="w-full bg-neutral-800 rounded-r-md pl-4 flex justify-between items-center border-yellow-500 border-l-2"
+    class="w-full bg-neutral-800 rounded-r-md px-4 flex justify-between items-center border-yellow-500 border-l-2 group"
   >
     <div class="flex gap-3 items-center py-2">
       <div
-        class="w-5 h-5 bg-neutral-900 rounded-md flex items-center justify-center"
+        class="w-5 h-5 bg-neutral-900 rounded-md flex items-center justify-center cursor-pointer"
         @click="incrementCounter(props.id)"
       >
         <i
           class="ri-check-line text-yellow-500"
-          :class="{ hidden: !props.exercise.completed }"
+          :class="{ 'hidden': !props.exercise.completed }"
         ></i>
+        <span class="hidden text-sm text-neutral-700" :class="{ 'group-hover:block': !props.exercise.completed }">+1</span>
       </div>
       <div>
         <h3
@@ -43,19 +44,19 @@
         </p>
       </div>
     </div>
-    <div class="relative h-full flex items-center justify-center group">
-      <h3 class="text-lg font-semibold pr-4"
-      :class="{
-              'text-yellow-500': props.exercise.completed,
-              'text-neutral-100': !props.exercise.completed,
-            }">
+    <div class="relative h-full flex items-center justify-center">
+      <h3
+        class="text-lg font-semibold pr-8"
+        :class="{
+          'text-yellow-500': props.exercise.completed,
+          'text-neutral-100': !props.exercise.completed,
+        }"
+      >
         {{ props.exercise.count + '/' + props.exercise.series }}
       </h3>
-      <div class="hidden absolute right-0 group-hover:flex items-center justify-center bg-yellow-500 h-full py-[26px] w-16 rounded-r-lg cursor-pointer"
+      <i class="ri-close-line hidden text-lg absolute right-0 text-rose-500 group-hover:flex cursor-pointer"
       @click="deleteExercise(props.id)"
-      >
-        <i class="ri-delete-bin-line"></i>
-      </div>
+      ></i>
     </div>
   </div>
 </template>

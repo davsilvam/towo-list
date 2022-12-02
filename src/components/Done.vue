@@ -7,7 +7,7 @@
 </script>
 
 <template>
-  <div>
+  <div class="w-full flex flex-col">
     <div class="w-full flex justify-between items-center">
       <h3 class="font-bold text-neutral-100 text-lg">Exercícios concluídos</h3>
       <RouterLink class="text-xs text-neutral-400 font-semibold" to="/concluidos">Ver todos</RouterLink>
