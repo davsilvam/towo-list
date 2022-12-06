@@ -7,7 +7,6 @@ const pinia = createPinia()
 import router from './router'
 
 import './assets/main.css'
-import 'remixicon/fonts/remixicon.css'
 
 const app = createApp(App)
 
