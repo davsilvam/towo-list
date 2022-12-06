@@ -20,7 +20,7 @@
       <li>
         <RouterLink :class="classLink" to="/">
           <HomeIcon :class="classIcon" />
-          <span :class="classSpan">Home</span>
+          <span :class="classSpan">Início</span>
         </RouterLink>
       </li>
       <li>
