@@ -81,9 +81,11 @@
           >
             {{ props.exercise.title }}
           </h3>
-          <p :class="classCategory">
-            {{ exercise.category }}
-          </p>
+          <div class="flex items-center justify-center gap-2">
+            <p v-for="category in exercise.categories" :key="exercise.categories.indexOf(category)" :class="classCategory">
+              {{ category }}
+            </p>
+          </div>
         </div>
       </div>
       <h3 :class="classWeight">

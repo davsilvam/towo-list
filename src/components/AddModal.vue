@@ -7,6 +7,17 @@
   const tasks = useTask()
   const emits = defineEmits(['closeModal'])
 
+  const exercise = ref<Exercise>({
+    title: '',
+    category: '',
+    categories: [],
+    series: null,
+    amount: null,
+    weight: null,
+    count: 0,
+    completed: false,
+  })
+
   interface Category {
     title: string
     subcategories: string[]
@@ -27,22 +38,21 @@
     },
   ])
 
-  const emptyFields = ref<boolean>(true)
+  const currentCategory = ref<Category>()
 
-  const exercise = ref<Exercise>({
-    title: '',
-    category: '',
-    series: null,
-    amount: null,
-    weight: null,
-    count: 0,
-    completed: false,
-  })
+  const setCategory = (categoryName: string) => {
+    exercise.value.category = categoryName
+    currentCategory.value = categories.value.find(category => category.title === categoryName)
+    console.log(exercise.value)
+  }
+
+  const emptyFields = ref<boolean>(true)
 
   watchEffect(() => {
     if (
       exercise.value.title &&
       exercise.value.category &&
+      exercise.value.categories.length > 0 &&
       exercise.value.series &&
       exercise.value.amount &&
       exercise.value.weight
@@ -53,15 +63,6 @@
     emptyFields.value = true
   })
 
-  const closeModal = () => {
-    emits('closeModal', false)
-  }
-
-  const setCategory = (category: string) => {
-    exercise.value.category = category
-    console.log(exercise.value)
-  }
-
   const addExercise = () => {
     if (emptyFields.value) {
       alert('Preencha todos os campos!')
@@ -70,14 +71,20 @@
 
     const newExercise = exercise.value
 
+    console.log(newExercise)
+
     tasks.createExercise(newExercise)
     closeModal()
+  }
+
+  const closeModal = () => {
+    emits('closeModal', false)
   }
 
   const classModalBack =
     'w-screen h-screen grid place-items-center top-0 bg-neutral-800 bg-opacity-75 absolute'
   const classModal =
-    'w-10/12 h-96 px-4 pb-6 flex flex-col justify-between max-w-lg rounded-lg bg-neutral-900'
+    'w-10/12 h-[450px] px-4 pb-6 flex flex-col justify-between max-w-lg rounded-lg bg-neutral-900'
   const classModalTitle = 'flex gap-2 font-semibold text-neutral-100'
   const classLabel = 'text-sm text-neutral-100'
   const classHeader =
@@ -116,6 +123,22 @@
               />
             </div>
             <SelectCategory :categories="categories" @category="setCategory" />
+          </div>
+          <div v-if="currentCategory" class="flex flex-col gap-2 items-center">
+            <h3 :class="classLabel">Músculos Trabalhados</h3>
+            <div class="flex flex-wrap items-center justify-center gap-y-2 gap-x-8">
+              <div class="flex items-center justify-center gap-2" v-for="category in currentCategory?.subcategories">
+                <input
+                  :key="currentCategory?.subcategories.indexOf(category)"
+                  :value="category"
+                  :id="category"
+                  v-model="exercise.categories"
+                  type="checkbox"
+                  class="outline-none"
+                />
+                <label class="text-white text-sm" :for="category">{{ category }}</label>
+              </div>
+            </div>
           </div>
           <div class="grid grid-cols-3 place-items-center">
             <div class="flex flex-col gap-2 items-center">

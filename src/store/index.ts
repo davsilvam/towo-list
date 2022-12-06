@@ -4,6 +4,7 @@ import { ref, watchEffect } from 'vue'
 export interface Exercise {
   title: string
   category: string
+  categories: string[]
   series: number | unknown
   amount: number | unknown
   weight: number | unknown
