@@ -25,12 +25,16 @@
       </li>
       <li class="flex items-center">
         <RouterLink to="/pendentes">
-          <ClockIcon class="w-5" />
+            <i
+          class="ri-time-line text-xl"
+        ></i>
         </RouterLink>
       </li>
       <li class="flex items-center">
         <RouterLink to="/concluidos">
-          <CheckIcon class="w-5" />
+            <i
+          class="ri-check-double-line text-xl"
+        ></i>
         </RouterLink>
       </li>
     </ul>

@@ -89,6 +89,9 @@
       <h3 :class="classWeight">
         {{ props.exercise.weight + ' Kg' }}
       </h3>
+      <i class="ri-close-line hidden text-lg absolute right-0 text-rose-500 group-hover:flex cursor-pointer"
+      @click="deleteExercise(props.id)"
+      ></i>
     </div>
   </div>
 </template>
