@@ -1,10 +1,23 @@
+<script setup lang="ts">
+  import { ExclamationCircleIcon } from '@heroicons/vue/24/solid'
+
+  const classCard =
+    'w-fit flex justify-between items-start gap-4 px-8 py-4 rounded-lg'
+  const classAlertIcon = 'w-6 pt-1 text-yellow-500'
+  const classAlertTitle = 'text-yellow-500 font-semibold'
+  const classAlertDescription = 'text-neutral-400 text-sm'
+</script>
+
 <template>
   <div class="w-full flex items-center justify-center">
-    <div id="card" class="w-fit flex justify-between items-center rounded-sm mx-8 px-8 py-4">
-      <i class="ri-lightbulb-line text-xl text-neutral-100 w-1/6"></i>
-      <h3 class="text-neutral-100 text-center w-5/6">
-        Ainda não há exercícios. Por que não criar um?
-      </h3>
+    <div id="card" :class="classCard">
+      <ExclamationCircleIcon :class="classAlertIcon" />
+      <div class="w-60 lg:w-96">
+        <h3 :class="classAlertTitle">Ainda não há exercícios</h3>
+        <p :class="classAlertDescription">
+          Adicione exercício e comece a registrar seus treinos.
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -12,7 +25,6 @@
 <style scoped>
   #card {
     background: rgba(38, 38, 38, 0.65);
-    border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(8.1px);
     -webkit-backdrop-filter: blur(8.1px);

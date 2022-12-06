@@ -6,12 +6,13 @@
   const openModal = () => {
     emits('openModal')
   }
+
+  const classHeader =
+    'w-full flex justify-between items-center py-4 text-neutral-100 border-b-2 border-yellow-500'
 </script>
 
 <template>
-  <header
-    class="w-full flex justify-between items-center py-4 text-neutral-100 border-b-2 border-yellow-500"
-  >
+  <header :class="classHeader">
     <h2 class="font-semibold text-lg">
       <slot />
     </h2>

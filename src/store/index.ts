@@ -3,8 +3,10 @@ import { ref, watchEffect } from 'vue'
 
 export interface Exercise {
   title: string
+  category: string
   series: number | unknown
   amount: number | unknown
+  weight: number | unknown
   count: number
   completed: boolean
 }
@@ -85,8 +87,8 @@ export const useTask = defineStore('tasks', () => {
 
   const deleteExercise = (id: number) => {
     const task = ref<Exercise>(exercises.value[id])
-    const filteredExercises = exercises.value.filter((exercise: Exercise) => 
-      exercise != task.value
+    const filteredExercises = exercises.value.filter(
+      (exercise: Exercise) => exercise != task.value
     )
 
     exercises.value = filteredExercises
@@ -101,6 +103,6 @@ export const useTask = defineStore('tasks', () => {
     changeStatus,
     createExercise,
     filterExercise,
-    deleteExercise
+    deleteExercise,
   }
 })

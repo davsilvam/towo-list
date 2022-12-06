@@ -35,11 +35,10 @@
         />
       </div>
       <div
-        class="w-full pt-4 flex flex-col items-center gap-2"
+        class="w-full pt-4 flex flex-col items-stretch lg:items-center gap-2"
         v-if="tasks.exercises.length > 0"
       >
         <ExerciseCard
-          class="max-w-2xl"
           v-for="exercise in filteredTasks"
           :key="tasks.exercises.indexOf(exercise)"
           :exercise="exercise"
@@ -50,11 +49,3 @@
     <NoExercises v-else />
   </div>
 </template>
-
-<style scoped>
-  #view {
-    background: #232526;
-    background: -webkit-linear-gradient(to right, #414345, #232526);
-    background: linear-gradient(225deg, #414345, #232526);
-  }
-</style>

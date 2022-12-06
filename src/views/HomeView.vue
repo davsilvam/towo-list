@@ -36,11 +36,3 @@
     </Teleport>
   </div>
 </template>
-
-<style scoped>
-  #view {
-    background: #232526;
-    background: -webkit-linear-gradient(to right, #414345, #232526);
-    background: linear-gradient(225deg, #414345, #232526);
-  }
-</style>

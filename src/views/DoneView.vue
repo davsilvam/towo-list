@@ -8,15 +8,14 @@
 </script>
 
 <template>
-  <div
-    id="view"
-    class="min-h-screen w-full flex flex-col gap-9"
-  >
+  <div id="view" class="min-h-screen w-full flex flex-col gap-9">
     <Header class="px-8"> Concluídos </Header>
-    <main class="w-full px-8 grid place-items-center" v-if="tasks.exercises.length > 0">
+    <main
+      class="w-full px-8 grid place-items-center"
+      v-if="tasks.exercises.length > 0"
+    >
       <div class="w-full pt-4 flex flex-col items-center gap-2">
         <ExerciseCard
-        class="max-w-2xl"
           v-for="exercise in tasks.doneExercise"
           :key="tasks.exercises.indexOf(exercise)"
           :exercise="exercise"
@@ -27,11 +26,3 @@
     <NoExercises v-else />
   </div>
 </template>
-
-<style scoped>
-  #view {
-    background: #232526;
-    background: -webkit-linear-gradient(to right, #414345, #232526);
-    background: linear-gradient(225deg, #414345, #232526);
-  }
-</style>

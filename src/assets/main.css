@@ -3,15 +3,19 @@
 @tailwind utilities;
 
 * {
-    font-family: 'Sora', sans-serif;
+  font-family: 'Sora', sans-serif;
 }
 
-input[type=number]::-webkit-inner-spin-button { 
-    -webkit-appearance: none;
-    
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
-input[type=number] { 
-   -moz-appearance: textfield;
-   appearance: textfield;
+input[type='number'] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
 
+#view {
+  background: #232526;
+  background: -webkit-linear-gradient(to right, #414345, #232526);
+  background: linear-gradient(225deg, #414345, #232526);
 }
