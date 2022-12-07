@@ -1,15 +1,14 @@
 <script setup lang="ts">
   import { ExclamationCircleIcon } from '@heroicons/vue/24/solid'
 
-  const classCard =
-    'w-fit flex justify-between items-start gap-4 px-8 py-4 rounded-lg'
-  const classAlertIcon = 'w-6 pt-1 text-yellow-500'
-  const classAlertTitle = 'text-yellow-500 font-semibold'
-  const classAlertDescription = 'text-neutral-400 text-sm'
+  const classCard = 'w-fit flex-between items-start gap-4 px-8 py-4 rounded-lg'
+  const classAlertIcon = 'w-6 text-yellow-500 pt-1'
+  const classAlertTitle = 'font-semibold text-yellow-500'
+  const classAlertDescription = 'text-sm text-neutral-400'
 </script>
 
 <template>
-  <div class="w-full flex items-center justify-center">
+  <div class="w-full flex-center">
     <div id="card" :class="classCard">
       <ExclamationCircleIcon :class="classAlertIcon" />
       <div class="w-60 lg:w-96">

@@ -2,7 +2,7 @@
   import { PlusCircleIcon } from '@heroicons/vue/20/solid'
 
   const classButton =
-    'w-fit py-1.5 px-3 flex justify-center items-center gap-1 bg-yellow-500 rounded-md bottom-8 right-8'
+    'w-fit py-1.5 px-3 flex-center gap-1 rounded-md bg-yellow-500'
 </script>
 
 <template>

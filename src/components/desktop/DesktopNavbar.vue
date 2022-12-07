@@ -8,15 +8,15 @@
   } from '@heroicons/vue/24/outline'
 
   const classLink =
-    'flex h-10 min-w-fit justify-center items-center gap-3 text-neutral-100 font-semibold text-lg hover:bg-yellow-500 rounded-full px-3 py-4 transition-colors duration-300'
-  const classIcon = 'grid place-items-center w-5'
+    'min-w-fit h-10 flex-center gap-3 text-neutral-100 font-semibold text-lg rounded-full px-3 py-4 hover-bg'
+  const classIcon = 'grid-center w-5'
   const classSpan = 'hidden group-hover:block text-base'
 </script>
 
 <template>
   <nav>
     <ul class="w-full flex flex-col items-stretch gap-10 p-4 group">
-      <div class="w-full h-px bg-neutral-100"></div>
+      <hr class="w-full h-px bg-neutral-100" />
       <li>
         <RouterLink :class="classLink" to="/">
           <HomeIcon :class="classIcon" />

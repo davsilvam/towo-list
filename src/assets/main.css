@@ -2,6 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer usables {
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .flex-between {
+    @apply flex items-center justify-between;
+  }
+
+  .grid-center {
+    @apply grid place-items-center;
+  }
+}
+
+@layer animations {
+  .focus-border {
+    @apply focus:bg-yellow-500 transition-colors duration-300;
+  }
+
+  .hover-bg {
+    @apply hover:bg-yellow-500 transition-colors duration-300;
+  }
+}
+
 * {
   font-family: 'Sora', sans-serif;
 }

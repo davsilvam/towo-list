@@ -2,7 +2,7 @@
   import DesktopNavbar from './DesktopNavbar.vue'
 
   const classAside =
-    'min-h-screen min-w-fit w-20 fixed z-10 flex flex-col items-center gap-4 bg-neutral-900 py-8'
+    'fixed z-10 min-w-fit w-20 min-h-screen hidden lg:flex flex-col items-center gap-4 bg-neutral-900 py-8'
 </script>
 
 <template>

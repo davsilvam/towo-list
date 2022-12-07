@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import { ref } from 'vue'
   import { useTask } from '../store'
+  import { HomeIcon } from '@heroicons/vue/24/outline'
   import Header from '../components/Header.vue'
   import Pending from '../components/Pending.vue'
   import Done from '../components/Done.vue'
@@ -21,10 +22,12 @@
 </script>
 
 <template>
-  <div id="view" class="min-h-screen w-full flex flex-col gap-9 relative">
-    <Header class="px-8" @openModal="openModal"> Início </Header>
+  <div id="view" class="relative w-full min-h-screen flex flex-col gap-9">
+    <Header class="px-8" @openModal="openModal">
+      <HomeIcon class="text-yellow-500 w-5" /> Início
+    </Header>
     <main
-      class="w-full px-8 flex flex-col lg:grid lg:grid-cols-2 lg:gap-20 gap-9 lg:px-20"
+      class="w-full flex flex-col lg:grid lg:grid-cols-2 lg:gap-20 gap-9 px-8 lg:px-20"
       v-if="tasks.exercises.length > 0"
     >
       <Pending />

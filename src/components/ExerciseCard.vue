@@ -15,17 +15,17 @@
 
   const classCard =
     'flex flex-col w-full lg:max-w-2xl border-l-2 border-yellow-500'
-  const classHeader = 'w-full bg-neutral-800 rounded-tr-md px-4'
+  const classHeader = 'w-full px-4 rounded-tr-md bg-neutral-800'
   const classHeaderComponents =
-    'h-fit flex items-center justify-between border-neutral-900 border-b-2 py-2'
+    'h-fit flex-between py-2 border-b-2 border-neutral-900'
   const classHeaderIcon = 'w-3 cursor-pointer'
   const classData =
-    'w-full bg-neutral-800 rounded-br-md px-4 flex justify-between items-center group'
+    'group w-full flex-between px-4 rounded-br-md bg-neutral-800'
   const classCheckAndTitle =
-    'w-5 h-5 bg-neutral-900 rounded-md flex items-center justify-center cursor-pointer'
+    'cursor-pointer w-5 h-5 flex-center rounded-md bg-neutral-900'
   const classTitle = 'text-sm font-semibold'
   const classCategory =
-    'bg-neutral-900 text-yellow-500 text-center w-fit py-px px-2 rounded-md font-semibold text-[10px]'
+    'w-fit text-[10px] font-semibold text-center text-yellow-500 px-2 py-px rounded-md bg-neutral-900'
   const classWeight = 'text-lg font-semibold text-neutral-100'
 </script>
 
@@ -81,8 +81,12 @@
           >
             {{ props.exercise.title }}
           </h3>
-          <div class="flex items-center justify-center gap-2">
-            <p v-for="category in exercise.categories" :key="exercise.categories.indexOf(category)" :class="classCategory">
+          <div class="flex-center gap-2">
+            <p
+              v-for="category in exercise.categories"
+              :key="exercise.categories.indexOf(category)"
+              :class="classCategory"
+            >
               {{ category }}
             </p>
           </div>
@@ -91,9 +95,6 @@
       <h3 :class="classWeight">
         {{ props.exercise.weight + ' Kg' }}
       </h3>
-      <i class="ri-close-line hidden text-lg absolute right-0 text-rose-500 group-hover:flex cursor-pointer"
-      @click="deleteExercise(props.id)"
-      ></i>
     </div>
   </div>
 </template>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import { ref } from 'vue'
   import { useTask, Exercise } from '../store'
+  import { MagnifyingGlassIcon } from '@heroicons/vue/24/outline'
   import Header from '../components/Header.vue'
   import ExerciseCard from '../components/ExerciseCard.vue'
   import NoExercises from '../components/NoExercises.vue'
@@ -16,18 +17,17 @@
 </script>
 
 <template>
-  <div id="view" class="min-h-screen w-full flex flex-col gap-9">
-    <Header class="px-8"> Pesquisa </Header>
-    <main
-      class="w-full px-8 grid place-items-center"
-      v-if="tasks.exercises.length > 0"
-    >
+  <div id="view" class="w-full min-h-screen flex flex-col gap-9">
+    <Header class="px-8">
+      <MagnifyingGlassIcon class="text-yellow-500 w-5" /> Pesquisa
+    </Header>
+    <main class="w-full grid-center px-8" v-if="tasks.exercises.length > 0">
       <div
-        class="w-full lg:w-1/2 flex gap-2 py-2 px-4 rounded-md text-neutral-100 bg-neutral-800"
+        class="w-full lg:w-1/2 flex gap-2 text-neutral-100 px-4 py-2 rounded-md bg-neutral-800"
       >
         <i class="ri-search-line"></i
         ><input
-          class="w-full outline-none bg-transparent placeholder:text-neutral-500"
+          class="w-full placeholder:text-neutral-500 outline-none bg-transparent"
           type="text"
           placeholder="Leg press..."
           v-model="search"
@@ -35,7 +35,7 @@
         />
       </div>
       <div
-        class="w-full pt-4 flex flex-col items-stretch lg:items-center gap-2"
+        class="w-full flex flex-col items-stretch lg:items-center gap-2 pt-4"
         v-if="tasks.exercises.length > 0"
       >
         <ExerciseCard

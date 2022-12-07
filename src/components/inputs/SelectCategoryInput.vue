@@ -22,12 +22,12 @@
 
   const classLabel = 'text-sm text-neutral-100'
   const classInput =
-    'relative w-full h-10 flex items-center justify-between bg-neutral-800 text-neutral-100 rounded-md px-2 cursor-pointer'
-  const classInputText = 'w-full bg-transparent text-sm'
+    'cursor-pointer relative w-full h-10 flex-between text-neutral-100 px-2 rounded-md bg-neutral-800'
+  const classInputText = 'w-full text-sm bg-transparent'
   const classDropbox =
-    'absolute -bottom-28 z-10 w-full flex flex-col rounded-md bg-neutral-800'
+    'absolute -bottom-28 z-10 w-full flex flex-col text-neutral-100 rounded-md bg-neutral-800'
   const classDropboxItem =
-    'text-sm text-neutral-100 cursor-pointer hover:bg-yellow-500 rounded-md py-2 px-2'
+    'cursor-pointer text-sm py-2 px-2 rounded-md hover-bg'
 </script>
 
 <template>

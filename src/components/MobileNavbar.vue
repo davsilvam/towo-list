@@ -9,26 +9,26 @@
 </script>
 
 <template>
-  <nav class="w-full px-8 fixed bottom-6">
+  <nav class="fixed bottom-6 lg:hidden w-full px-8">
     <ul
-      class="w-full bg-neutral-900 flex justify-between px-6 py-3 rounded-3xl text-neutral-100"
+      class="w-full flex-between text-neutral-100 px-6 py-3 rounded-3xl bg-neutral-900"
     >
-      <li class="flex items-center">
+      <li class="flex-center">
         <RouterLink to="/">
           <HomeIcon class="w-5" />
         </RouterLink>
       </li>
-      <li class="flex items-center">
+      <li class="flex-center">
         <RouterLink to="/pesquisa">
           <MagnifyingGlassIcon class="w-5" />
         </RouterLink>
       </li>
-      <li class="flex items-center">
+      <li class="flex-center">
         <RouterLink to="/pendentes">
           <ClockIcon class="w-5" />
         </RouterLink>
       </li>
-      <li class="flex items-center">
+      <li class="flex-center">
         <RouterLink to="/concluidos">
           <CheckIcon class="w-5" />
         </RouterLink>
