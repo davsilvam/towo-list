@@ -2,7 +2,11 @@
   import { ref, watchEffect } from 'vue'
   import { useTask, Exercise } from '../store'
   import { XMarkIcon, FolderPlusIcon } from '@heroicons/vue/20/solid'
+  import TextExerciseTitle from './inputs/TextExerciseTitleInput.vue'
   import SelectCategory from './inputs/SelectCategoryInput.vue'
+  import NumberSeries from './inputs/NumberSeriesInput.vue'
+  import NumberAmount from './inputs/NumberAmountInput.vue'
+  import NumberWeight from './inputs/NumberWeightInput.vue'
 
   const tasks = useTask()
   const emits = defineEmits(['closeModal'])
@@ -17,6 +21,22 @@
     count: 0,
     completed: false,
   })
+
+  const setTitle = (title: string) => {
+    exercise.value.title = title
+  }
+
+  const setSeries = (series: number) => {
+    exercise.value.series = series
+  }
+
+  const setAmount = (amount: number) => {
+    exercise.value.amount = amount
+  }
+
+  const setWeight = (weight: number) => {
+    exercise.value.weight = weight
+  }
 
   interface Category {
     title: string
@@ -42,7 +62,9 @@
 
   const setCategory = (categoryName: string) => {
     exercise.value.category = categoryName
-    currentCategory.value = categories.value.find(category => category.title === categoryName)
+    currentCategory.value = categories.value.find(
+      (category) => category.title === categoryName
+    )
     console.log(exercise.value)
   }
 
@@ -65,7 +87,7 @@
 
   const addExercise = () => {
     if (emptyFields.value) {
-      alert('Preencha todos os campos!')
+      alert('⚠️ Preencha todos os campos!')
       return
     }
 
@@ -82,18 +104,13 @@
   }
 
   const classModalBack =
-    'w-screen h-screen grid place-items-center top-0 bg-neutral-800 bg-opacity-75 absolute'
+    'absolute top-0 w-screen h-screen grid-center bg-neutral-800 bg-opacity-75'
   const classModal =
-    'w-10/12 h-[450px] px-4 pb-6 flex flex-col justify-between max-w-lg rounded-lg bg-neutral-900'
+    'max-w-lg w-10/12 h-[450px] flex flex-col justify-between px-4 pb-6 rounded-lg bg-neutral-900'
   const classModalTitle = 'flex gap-2 font-semibold text-neutral-100'
   const classLabel = 'text-sm text-neutral-100'
-  const classHeader =
-    'py-4 flex justify-between items-center border-b-2 border-neutral-800'
-  const classLargeInput =
-    'w-full h-10 bg-neutral-800 text-neutral-100 text-sm p-2 placeholder:text-neutral-500 rounded-md outline-none border-[2px] border-transparent focus:border-yellow-500'
-  const classShortInputs =
-    'w-16 h-10 bg-neutral-800 text-neutral-100 text-sm p-2 placeholder:text-neutral-500 rounded-md outline-none border-[2px] border-transparent focus:border-yellow-500'
-  const classSubmitInput = 'border-2 py-2 rounded-md border-yellow-500'
+  const classHeader = 'py-4 flex-between border-b-2 border-neutral-800'
+  const classSubmitInput = 'py-2 border-2 rounded-md border-yellow-500'
 </script>
 
 <template>
@@ -112,65 +129,36 @@
         </header>
         <div class="mt-4 flex flex-col gap-5">
           <div class="grid grid-cols-3 gap-4">
-            <div class="w-full flex flex-col gap-2 col-start-1 col-end-3">
-              <label for="title" :class="classLabel">Nome do exercício</label>
-              <input
-                v-model="exercise.title"
-                placeholder="Levantamento de peso..."
-                type="text"
-                id="title"
-                :class="classLargeInput"
-              />
-            </div>
+            <TextExerciseTitle @exerciseTitle="setTitle" />
             <SelectCategory :categories="categories" @category="setCategory" />
           </div>
           <div v-if="currentCategory" class="flex flex-col gap-2 items-center">
             <h3 :class="classLabel">Músculos Trabalhados</h3>
-            <div class="flex flex-wrap items-center justify-center gap-y-2 gap-x-8">
-              <div class="flex items-center justify-center gap-2" v-for="category in currentCategory?.subcategories">
+            <div
+              class="flex flex-wrap items-center justify-center gap-y-2 gap-x-8"
+            >
+              <div
+                class="flex items-center justify-center gap-2"
+                v-for="category in currentCategory?.subcategories"
+              >
                 <input
                   :key="currentCategory?.subcategories.indexOf(category)"
                   :value="category"
                   :id="category"
                   v-model="exercise.categories"
                   type="checkbox"
-                  class="outline-none"
+                  class="outline-none accent-yellow-500"
                 />
-                <label class="text-white text-sm" :for="category">{{ category }}</label>
+                <label class="text-white text-sm" :for="category">{{
+                  category
+                }}</label>
               </div>
             </div>
           </div>
           <div class="grid grid-cols-3 place-items-center">
-            <div class="flex flex-col gap-2 items-center">
-              <label for="series" :class="classLabel">Séries</label>
-              <input
-                v-model="exercise.series"
-                placeholder="3x"
-                type="number"
-                id="series"
-                :class="classShortInputs"
-              />
-            </div>
-            <div class="flex flex-col gap-2 items-center">
-              <label for="amount" :class="classLabel">Quantidade</label>
-              <input
-                v-model="exercise.amount"
-                placeholder="10"
-                type="number"
-                id="amount"
-                :class="classShortInputs"
-              />
-            </div>
-            <div class="flex flex-col gap-2 items-center">
-              <label for="amount" :class="classLabel">Peso Inicial</label>
-              <input
-                v-model="exercise.weight"
-                placeholder="10 Kg"
-                type="number"
-                id="amount"
-                :class="classShortInputs"
-              />
-            </div>
+            <NumberSeries @exerciseSeries="setSeries" />
+            <NumberAmount @exerciseAmount="setAmount" />
+            <NumberWeight @exerciseWeight="setWeight" />
           </div>
         </div>
       </div>

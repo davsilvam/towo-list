@@ -18,7 +18,7 @@
 
 @layer animations {
   .focus-border {
-    @apply focus:bg-yellow-500 transition-colors duration-300;
+    @apply outline-none border-[2px] border-transparent focus:bg-yellow-500 transition-colors duration-300;
   }
 
   .hover-bg {

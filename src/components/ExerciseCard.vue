@@ -41,9 +41,15 @@
           }"
         >
           {{
-            exercise.count == exercise.series
+            exercise.count === exercise.series
               ? 'Completo'
-              : `Faltam ${props.exercise.series - props.exercise.count} séries.`
+              : exercise.series - exercise.count === 1
+              ? `Faltam ${
+                  props.exercise.series - props.exercise.count
+                } série de ${props.exercise.amount}.`
+              : `Faltam ${
+                  props.exercise.series - props.exercise.count
+                } séries de ${props.exercise.amount}.`
           }}
         </p>
         <nav class="flex gap-4">
