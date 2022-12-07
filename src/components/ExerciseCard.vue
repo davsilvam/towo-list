@@ -12,27 +12,12 @@
   const deleteExercise = (id: number) => {
     tasks.deleteExercise(id)
   }
-
-  const classCard =
-    'flex flex-col w-full lg:max-w-2xl border-l-2 border-yellow-500'
-  const classHeader = 'w-full px-4 rounded-tr-md bg-neutral-800'
-  const classHeaderComponents =
-    'h-fit flex-between py-2 border-b-2 border-neutral-900'
-  const classHeaderIcon = 'w-3 cursor-pointer'
-  const classData =
-    'group w-full flex-between px-4 rounded-br-md bg-neutral-800'
-  const classCheckAndTitle =
-    'cursor-pointer w-5 h-5 flex-center rounded-md bg-neutral-900'
-  const classTitle = 'text-sm font-semibold'
-  const classCategory =
-    'w-fit text-[10px] font-semibold text-center text-yellow-500 px-2 py-px rounded-md bg-neutral-900'
-  const classWeight = 'text-lg font-semibold text-neutral-100'
 </script>
 
 <template>
-  <div :class="classCard">
-    <header :class="classHeader">
-      <div :class="classHeaderComponents">
+  <div class="flex flex-col w-full lg:max-w-2xl border-l-2 border-yellow-500">
+    <header class="w-full px-4 rounded-tr-md bg-neutral-800">
+      <div class="h-fit flex-between py-2 border-b-2 border-neutral-900">
         <p
           class="text-xs font-semibold"
           :class="{
@@ -53,17 +38,20 @@
           }}
         </p>
         <nav class="flex gap-4">
-          <PencilIcon :class="['text-yellow-500', classHeaderIcon]" />
+          <PencilIcon class="header-icon text-yellow-500" />
           <TrashIcon
-            :class="['text-rose-500', classHeaderIcon]"
+            class="header-icon text-rose-500"
             @click="deleteExercise(props.id)"
           />
         </nav>
       </div>
     </header>
-    <div :class="classData">
+    <div class="group w-full flex-between px-4 rounded-br-md bg-neutral-800">
       <div class="flex gap-3 items-center py-2">
-        <div :class="classCheckAndTitle" @click="incrementCounter(props.id)">
+        <div
+          class="cursor-pointer w-5 h-5 flex-center rounded-md bg-neutral-900"
+          @click="incrementCounter(props.id)"
+        >
           <CheckIcon
             class="w-4 text-yellow-500"
             :class="{ hidden: !props.exercise.completed }"
@@ -77,7 +65,7 @@
         <div class="flex flex-col gap-1">
           <h3
             :class="[
-              classTitle,
+              'text-sm font-semibold',
               {
                 'text-yellow-500': props.exercise.completed,
                 'text-neutral-100': !props.exercise.completed,
@@ -91,16 +79,26 @@
             <p
               v-for="category in exercise.categories"
               :key="exercise.categories.indexOf(category)"
-              :class="classCategory"
+              class="category"
             >
               {{ category }}
             </p>
           </div>
         </div>
       </div>
-      <h3 :class="classWeight">
+      <h3 class="text-lg font-semibold text-neutral-100">
         {{ props.exercise.weight + ' Kg' }}
       </h3>
     </div>
   </div>
 </template>
+
+<style scoped>
+  .header-icon {
+    @apply w-3 cursor-pointer;
+  }
+
+  .category {
+    @apply w-fit text-[10px] font-semibold text-center text-yellow-500 px-2 py-px rounded-md bg-neutral-900;
+  }
+</style>

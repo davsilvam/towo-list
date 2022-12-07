@@ -102,23 +102,14 @@
   const closeModal = () => {
     emits('closeModal', false)
   }
-
-  const classModalBack =
-    'absolute top-0 w-screen h-screen grid-center bg-neutral-800 bg-opacity-75'
-  const classModal =
-    'max-w-lg w-10/12 h-[450px] flex flex-col justify-between px-4 pb-6 rounded-lg bg-neutral-900'
-  const classModalTitle = 'flex gap-2 font-semibold text-neutral-100'
-  const classLabel = 'text-sm text-neutral-100'
-  const classHeader = 'py-4 flex-between border-b-2 border-neutral-800'
-  const classSubmitInput = 'py-2 border-2 rounded-md border-yellow-500'
 </script>
 
 <template>
-  <div :class="classModalBack" @click.self="closeModal">
-    <form :class="classModal" @submit.prevent="addExercise()">
+  <div class="modal-black" @click.self="closeModal">
+    <form class="modal" @submit.prevent="addExercise()">
       <div>
-        <header :class="classHeader">
-          <h3 :class="classModalTitle">
+        <header class="py-4 flex-between border-b-2 border-neutral-800">
+          <h3 class="flex gap-2 font-semibold text-neutral-100">
             Novo Exercício
             <FolderPlusIcon class="w-4" />
           </h3>
@@ -133,7 +124,7 @@
             <SelectCategory :categories="categories" @category="setCategory" />
           </div>
           <div v-if="currentCategory" class="flex flex-col gap-2 items-center">
-            <h3 :class="classLabel">Músculos Trabalhados</h3>
+            <h3 class="label">Músculos Trabalhados</h3>
             <div
               class="flex flex-wrap items-center justify-center gap-y-2 gap-x-8"
             >
@@ -164,7 +155,7 @@
       </div>
       <input
         :class="[
-          classSubmitInput,
+          'py-2 border-2 rounded-md border-yellow-500',
           emptyFields
             ? 'text-yellow-500 cursor-not-allowed'
             : 'bg-yellow-500 text-neutral-100 cursor-pointer',

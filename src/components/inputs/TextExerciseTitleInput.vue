@@ -5,17 +5,14 @@
 
   const exerciseTitle = ref<string>('')
 
-  const inputTitle= () => {
+  const inputTitle = () => {
     emits('exerciseTitle', exerciseTitle.value)
   }
-
-  const classLargeInput =
-    'w-full h-10 text-neutral-100 text-sm placeholder:text-neutral-500 p-2 rounded-md focus-border bg-neutral-800'
 </script>
 
 <template>
   <div class="w-full flex flex-col gap-2 col-start-1 col-end-3">
-    <label for="title" class="text-sm text-neutral-100"
+    <label for="title" class="label"
       >Nome do exercício</label
     >
     <input
@@ -23,7 +20,7 @@
       placeholder="Levantamento de peso..."
       type="text"
       id="title"
-      :class="classLargeInput"
+      class="large-input"
       @input="inputTitle"
     />
   </div>

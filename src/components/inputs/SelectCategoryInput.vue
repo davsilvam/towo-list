@@ -19,27 +19,18 @@
     emits('category', currentCategory.value)
     toogleSelect()
   }
-
-  const classLabel = 'text-sm text-neutral-100'
-  const classInput =
-    'cursor-pointer relative w-full h-10 flex-between text-neutral-100 px-2 rounded-md bg-neutral-800'
-  const classInputText = 'w-full text-sm bg-transparent'
-  const classDropbox =
-    'absolute -bottom-28 z-10 w-full flex flex-col text-neutral-100 rounded-md bg-neutral-800'
-  const classDropboxItem =
-    'cursor-pointer text-sm py-2 px-2 rounded-md hover-bg'
 </script>
 
 <template>
   <div class="relative w-full flex flex-col gap-2 col-start-3 col-end-4">
-    <label for="category" :class="classLabel">Categoria</label>
-    <div :class="classInput" @click="toogleSelect">
+    <label for="category" class="label">Categoria</label>
+    <div class="select-input" @click="toogleSelect">
       <p
         placeholder="Superiores"
         type="text"
         id="category"
         :class="[
-          classInputText,
+          'w-full text-sm bg-transparent',
           {
             'text-neutral-500': categoryMessage === 'Selecionar',
           },
@@ -49,9 +40,9 @@
       </p>
       <ChevronDownIcon class="hidden md:block absolute w-5 right-1" />
     </div>
-    <ul :class="classDropbox" v-if="selectOpen">
+    <ul class="dropbox" v-if="selectOpen">
       <li
-        :class="classDropboxItem"
+        class="cursor-pointer text-sm py-2 px-2 rounded-md hover-bg"
         v-for="category in props.categories"
         :key="categories.indexOf(category)"
       >

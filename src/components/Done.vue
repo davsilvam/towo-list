@@ -4,15 +4,13 @@
   import ExerciseCard from './ExerciseCard.vue'
 
   const tasks = useTask()
-
-  const classAllLink = 'text-xs font-semibold text-neutral-400'
 </script>
 
 <template>
   <section class="w-full flex flex-col">
     <header class="w-full flex-between">
       <h3 class="text-lg font-bold text-neutral-100">Exercícios concluídos</h3>
-      <RouterLink :class="classAllLink" to="/concluidos">Ver todos</RouterLink>
+      <RouterLink class="all-link" to="/concluidos">Ver todos</RouterLink>
     </header>
     <div class="pt-4 flex flex-col gap-2">
       <ExerciseCard

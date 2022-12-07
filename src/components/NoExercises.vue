@@ -1,19 +1,17 @@
 <script setup lang="ts">
   import { ExclamationCircleIcon } from '@heroicons/vue/24/solid'
-
-  const classCard = 'w-fit flex-between items-start gap-4 px-8 py-4 rounded-lg'
-  const classAlertIcon = 'w-6 text-yellow-500 pt-1'
-  const classAlertTitle = 'font-semibold text-yellow-500'
-  const classAlertDescription = 'text-sm text-neutral-400'
 </script>
 
 <template>
   <div class="w-full flex-center">
-    <div id="card" :class="classCard">
-      <ExclamationCircleIcon :class="classAlertIcon" />
+    <div
+      id="card"
+      class="w-fit flex-between items-start gap-4 px-8 py-4 rounded-lg"
+    >
+      <ExclamationCircleIcon class="w-6 text-yellow-500 pt-1" />
       <div class="w-60 lg:w-96">
-        <h3 :class="classAlertTitle">Ainda não há exercícios</h3>
-        <p :class="classAlertDescription">
+        <h3 class="font-semibold text-yellow-500">Ainda não há exercícios</h3>
+        <p class="text-sm text-neutral-400">
           Adicione exercício e comece a registrar seus treinos.
         </p>
       </div>

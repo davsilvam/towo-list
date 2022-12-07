@@ -8,21 +8,17 @@
   const inputWeight = () => {
     emits('exerciseWeight', exerciseWeight.value)
   }
-
-  const classLabel = 'text-sm text-neutral-100'
-  const classShortInputs =
-    'w-16 h-10 bg-neutral-800 text-sm text-neutral-100 placeholder:text-neutral-500 p-2 rounded-md focus-border'
 </script>
 
 <template>
   <div class="flex flex-col gap-2 items-center">
-    <label for="amount" :class="classLabel">Peso Inicial</label>
+    <label for="amount" class="label">Peso Inicial</label>
     <input
       v-model="exerciseWeight"
       placeholder="10 Kg"
       type="number"
       id="amount"
-      :class="classShortInputs"
+      class="short-input"
       @input="inputWeight"
     />
   </div>
