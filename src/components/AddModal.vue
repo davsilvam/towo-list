@@ -15,9 +15,9 @@
     title: '',
     category: '',
     categories: [],
-    series: null,
-    amount: null,
-    weight: null,
+    series: undefined,
+    amount: undefined,
+    weight: undefined,
     count: 0,
     completed: false,
   })
@@ -65,7 +65,6 @@
     currentCategory.value = categories.value.find(
       (category) => category.title === categoryName
     )
-    console.log(exercise.value)
   }
 
   const emptyFields = ref<boolean>(true)
@@ -92,8 +91,6 @@
     }
 
     const newExercise = exercise.value
-
-    console.log(newExercise)
 
     tasks.createExercise(newExercise)
     closeModal()

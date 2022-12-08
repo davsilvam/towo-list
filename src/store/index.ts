@@ -5,9 +5,9 @@ export interface Exercise {
   title: string
   category: string
   categories: string[]
-  series: number | unknown
-  amount: number | unknown
-  weight: number | unknown
+  series?: number
+  amount?: number
+  weight?: number
   count: number
   completed: boolean
 }
