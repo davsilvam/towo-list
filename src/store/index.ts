@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia'
 import { ref, watchEffect } from 'vue'
 
-export interface Exercise {
+export type Exercise = {
   title: string
-  category: string
+  category?: 'Superiores' | 'Inferiores' | 'Outros'
   categories: string[]
   series?: number
   amount?: number
@@ -79,6 +79,10 @@ export const useTask = defineStore('tasks', () => {
   }
 
   const filterExercise = (search: string) => {
+    if (!search) {
+      return
+    }
+
     const filteredExercises = exercises.value.filter((exercise: Exercise) =>
       exercise.title.includes(search)
     )

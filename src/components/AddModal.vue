@@ -13,7 +13,7 @@
 
   const exercise = ref<Exercise>({
     title: '',
-    category: '',
+    category: undefined,
     categories: [],
     series: undefined,
     amount: undefined,
@@ -60,7 +60,7 @@
 
   const currentCategory = ref<Category>()
 
-  const setCategory = (categoryName: string) => {
+  const setCategory = (categoryName: 'Superiores' | 'Inferiores' | 'Outros') => {
     exercise.value.category = categoryName
     currentCategory.value = categories.value.find(
       (category) => category.title === categoryName
