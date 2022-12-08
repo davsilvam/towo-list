@@ -74,6 +74,3 @@ input[type='number'] {
   appearance: textfield;
 }
 
-#view {
-  @apply bg-neutral-800;
-}
