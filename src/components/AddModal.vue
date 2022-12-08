@@ -138,7 +138,7 @@
                   :id="category"
                   v-model="exercise.categories"
                   type="checkbox"
-                  class="outline-none accent-yellow-500"
+                  class="peer appearance-none relative w-4 h-4 border border-neutral-700 rounded-sm focus:outline-none checked:bg-yellow-500 checked:border-yellow-500 hover-ring checkbox-check"
                 />
                 <label class="text-white text-sm" :for="category">{{
                   category
@@ -166,3 +166,9 @@
     </form>
   </div>
 </template>
+
+<style>
+  .checkbox-check {
+    @apply after:content-[''] after:w-full after:h-full after:absolute after:left-0 after:top-0 after:bg-[length:16px] after:bg-no-repeat after:bg-center checked:after:bg-[url('src/assets/img/x-mark.svg')]
+  }
+</style>
