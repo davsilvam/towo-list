@@ -9,7 +9,7 @@
   const tasks = useTask()
 
   const search = ref<string>('')
-  const filteredTasks = ref<Exercise[]>([])
+  const filteredTasks = ref<Exercise[] | undefined>([])
 
   const filterExercises = (search: string) => {
     filteredTasks.value = tasks.filterExercise(search)
