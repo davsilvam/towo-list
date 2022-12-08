@@ -4,7 +4,7 @@
 
 @layer components {
   .all-link {
-    @apply text-xs font-semibold text-neutral-400
+    @apply text-xs font-semibold text-neutral-400;
   }
 
   .modal-black {
@@ -75,7 +75,5 @@ input[type='number'] {
 }
 
 #view {
-  background: #232526;
-  background: -webkit-linear-gradient(to right, #414345, #232526);
-  background: linear-gradient(225deg, #414345, #232526);
+  @apply bg-neutral-800;
 }

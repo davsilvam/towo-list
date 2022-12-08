@@ -15,9 +15,11 @@
 </script>
 
 <template>
-  <div class="flex flex-col w-full lg:max-w-2xl border-l-2 border-yellow-500">
-    <header class="w-full px-4 rounded-tr-md bg-neutral-800">
-      <div class="h-fit flex-between py-2 border-b-2 border-neutral-900">
+  <div
+    class="flex flex-col w-full lg:max-w-2xl border-l-2 border-yellow-500 rounded-r-md card"
+  >
+    <header class="w-full px-4 rounded-tr-md">
+      <div class="h-fit flex-between py-2 border-b-2 border-neutral-800">
         <p
           class="text-xs font-semibold"
           :class="{
@@ -46,10 +48,10 @@
         </nav>
       </div>
     </header>
-    <div class="group w-full flex-between px-4 rounded-br-md bg-neutral-800">
+    <div class="group w-full flex-between px-4 rounded-br-md">
       <div class="flex gap-3 items-center py-2">
         <div
-          class="cursor-pointer w-5 h-5 flex-center rounded-md bg-neutral-900"
+          class="cursor-pointer w-5 h-5 flex-center rounded-md bg-neutral-900 hover-ring"
           @click="incrementCounter(props.id)"
         >
           <CheckIcon
@@ -94,6 +96,24 @@
 </template>
 
 <style scoped>
+  .card {
+    background-image: linear-gradient(
+      to left bottom,
+      #171717,
+      #1a1a1a,
+      #1c1c1c,
+      #1f1f1f,
+      #222222,
+      #252525,
+      #272727,
+      #2a2a2a,
+      #2d2d2d,
+      #313131,
+      #343434,
+      #383838
+    );
+  }
+
   .header-icon {
     @apply w-3 cursor-pointer;
   }

@@ -9,7 +9,7 @@
 </script>
 
 <template>
-  <div id="view" class="w-full min-h-screen flex flex-col gap-9">
+  <div class="w-full min-h-screen flex flex-col gap-9">
     <Header class="px-8">
       <CheckIcon class="text-yellow-500 w-5" /> Concluídos
     </Header>

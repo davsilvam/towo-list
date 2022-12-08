@@ -17,16 +17,16 @@
 </script>
 
 <template>
-  <div id="view" class="w-full min-h-screen flex flex-col gap-9">
+  <div class="w-full min-h-screen flex flex-col gap-9">
     <Header class="px-8">
       <MagnifyingGlassIcon class="text-yellow-500 w-5" /> Pesquisa
     </Header>
     <main class="w-full grid-center px-8" v-if="tasks.exercises.length > 0">
       <div
-        class="w-full lg:w-1/2 flex gap-2 text-neutral-100 px-4 py-2 rounded-md bg-neutral-800"
+        class="w-full lg:w-1/2 flex gap-2 text-neutral-100 px-4 py-2 rounded-md bg-neutral-900"
       >
-        <i class="ri-search-line"></i
-        ><input
+      <MagnifyingGlassIcon class="w-5" />  
+      <input
           class="w-full placeholder:text-neutral-500 outline-none bg-transparent"
           type="text"
           placeholder="Leg press..."

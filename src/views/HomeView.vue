@@ -22,7 +22,7 @@
 </script>
 
 <template>
-  <div id="view" class="relative w-full min-h-screen flex flex-col gap-9">
+  <div class="relative w-full min-h-screen flex flex-col gap-9">
     <Header class="px-8" @openModal="openModal">
       <HomeIcon class="text-yellow-500 w-5" /> Início
     </Header>
