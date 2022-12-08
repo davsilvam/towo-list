@@ -169,6 +169,6 @@
 
 <style>
   .checkbox-check {
-    @apply after:content-[''] after:w-full after:h-full after:absolute after:left-0 after:top-0 after:bg-[length:16px] after:bg-no-repeat after:bg-center checked:after:bg-[url('src/assets/img/x-mark.svg')]
+    @apply after:content-[''] after:w-full after:h-full after:absolute after:left-0 after:top-0 after:bg-[length:16px] after:bg-no-repeat after:bg-center checked:after:bg-[url('src/assets/img/check-mark.svg')];
   }
 </style>
