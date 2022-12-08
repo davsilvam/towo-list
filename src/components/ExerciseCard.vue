@@ -16,10 +16,15 @@
 
 <template>
   <div
-    class="flex flex-col w-full lg:max-w-2xl border-l-2 border-yellow-500 rounded-r-md card"
+    class="flex flex-col w-full lg:max-w-2xl border-l-2 border-yellow-500 rounded-r-md bg-neutral-900"
   >
-    <header class="w-full px-4 rounded-tr-md">
-      <div class="h-fit flex-between py-2 border-b-2 border-neutral-800">
+    <header
+      class="w-full px-4 rounded-tr-md bg-[url('../assets/img/topography-pattern.svg')] bg-opacity-50"
+    >
+      <div class="h-fit flex-between py-2 border-b-2" :class="{
+            'border-yellow-500': props.exercise.completed,
+            'border-neutral-800': !props.exercise.completed,
+          }">
         <p
           class="text-xs font-semibold"
           :class="{
@@ -49,9 +54,9 @@
       </div>
     </header>
     <div class="group w-full flex-between px-4 rounded-br-md">
-      <div class="flex gap-3 items-center py-2">
+      <div class="flex gap-4 items-center py-3">
         <div
-          class="cursor-pointer w-5 h-5 flex-center rounded-md bg-neutral-900 hover-ring"
+          class="cursor-pointer w-5 h-5 flex-center rounded-md bg-neutral-800 hover-ring"
           @click="incrementCounter(props.id)"
         >
           <CheckIcon
@@ -59,12 +64,12 @@
             :class="{ hidden: !props.exercise.completed }"
           />
           <span
-            class="hidden text-sm text-neutral-700"
+            class="hidden text-xs text-neutral-700"
             :class="{ 'group-hover:block': !props.exercise.completed }"
             >+1</span
           >
         </div>
-        <div class="flex flex-col gap-1">
+        <div class="flex flex-col gap-1.5">
           <h3
             :class="[
               'text-sm font-semibold',
@@ -88,7 +93,13 @@
           </div>
         </div>
       </div>
-      <h3 class="text-lg font-semibold text-neutral-100">
+      <h3
+        class="text-lg font-semibold text-neutral-100"
+        :class="{
+          'text-yellow-500': props.exercise.completed,
+          'text-neutral-100': !props.exercise.completed,
+        }"
+      >
         {{ props.exercise.weight + ' Kg' }}
       </h3>
     </div>
@@ -96,29 +107,11 @@
 </template>
 
 <style scoped>
-  .card {
-    background-image: linear-gradient(
-      to left bottom,
-      #171717,
-      #1a1a1a,
-      #1c1c1c,
-      #1f1f1f,
-      #222222,
-      #252525,
-      #272727,
-      #2a2a2a,
-      #2d2d2d,
-      #313131,
-      #343434,
-      #383838
-    );
-  }
-
   .header-icon {
     @apply w-3 cursor-pointer;
   }
 
   .category {
-    @apply w-fit text-[10px] font-semibold text-center text-yellow-500 px-2 py-px rounded-md bg-neutral-900;
+    @apply w-fit text-[10px] font-semibold text-center text-neutral-900 px-2 py-px rounded-md bg-yellow-500;
   }
 </style>

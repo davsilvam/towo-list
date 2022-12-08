@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { ref, watchEffect } from 'vue'
-  import { useTask, Exercise } from '../store'
+  import { useTask, Exercise, CategoryType } from '../store'
   import { XMarkIcon, FolderPlusIcon } from '@heroicons/vue/20/solid'
   import TextExerciseTitle from './inputs/TextExerciseTitleInput.vue'
   import SelectCategory from './inputs/SelectCategoryInput.vue'
@@ -60,7 +60,7 @@
 
   const currentCategory = ref<Category>()
 
-  const setCategory = (categoryName: 'Superiores' | 'Inferiores' | 'Outros') => {
+  const setCategory = (categoryName: CategoryType) => {
     exercise.value.category = categoryName
     currentCategory.value = categories.value.find(
       (category) => category.title === categoryName
@@ -135,7 +135,7 @@
                   :id="category"
                   v-model="exercise.categories"
                   type="checkbox"
-                  class="peer appearance-none relative w-4 h-4 border border-neutral-700 rounded-sm focus:outline-none checked:bg-yellow-500 checked:border-yellow-500 hover-ring checkbox-check"
+                  class="peer appearance-none relative w-4 h-4 border border-neutral-700 rounded-sm focus:outline-none checked:bg-yellow-500 checked:border-yellow-500 hover-ring"
                 />
                 <label class="text-white text-sm" :for="category">{{
                   category
@@ -163,9 +163,3 @@
     </form>
   </div>
 </template>
-
-<style>
-  .checkbox-check {
-    @apply after:content-[''] after:w-full after:h-full after:absolute after:left-0 after:top-0 after:bg-[length:16px] after:bg-no-repeat after:bg-center checked:after:bg-[url('src/assets/img/check-mark.svg')];
-  }
-</style>

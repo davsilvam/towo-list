@@ -11,7 +11,7 @@
 <template>
   <nav class="fixed bottom-6 lg:hidden w-full px-8">
     <ul
-      class="w-full flex-between text-neutral-100 px-6 py-3 rounded-3xl bg-neutral-900"
+      class="w-full flex-between text-neutral-100 px-6 py-3 rounded-3xl bg-neutral-900 bg-opacity-80"
     >
       <li class="flex-center">
         <RouterLink to="/">

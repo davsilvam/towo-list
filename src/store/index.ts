@@ -1,9 +1,11 @@
 import { defineStore } from 'pinia'
 import { ref, watchEffect } from 'vue'
 
+export type CategoryType = 'Superiores' | 'Inferiores' | 'Outros'
+
 export type Exercise = {
   title: string
-  category?: 'Superiores' | 'Inferiores' | 'Outros'
+  category?: CategoryType
   categories: string[]
   series?: number
   amount?: number

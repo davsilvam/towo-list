@@ -7,7 +7,7 @@
 <template>
   <div class="relative w-screen flex-between bg-neutral-900">
     <DesktopSidebar />
-    <RouterView class="lg:ml-20 bg-neutral-800" />
+    <RouterView class="bg-neutral-800" />
     <MobileNavbar />
   </div>
 </template>

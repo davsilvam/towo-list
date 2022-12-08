@@ -4,7 +4,7 @@
 
 <template>
   <aside
-    class="fixed z-10 min-w-fit w-20 min-h-screen hidden lg:flex flex-col items-center gap-4 py-8 bg-neutral-900"
+    class="fixed z-10 right-4 min-w-fit w-20 hidden lg:flex flex-col items-center gap-4 py-8 rounded-lg bg-neutral-900 bg-opacity-80"
   >
     <img
       class="w-14"

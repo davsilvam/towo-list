@@ -27,7 +27,7 @@
       <HomeIcon class="text-yellow-500 w-5" /> Início
     </Header>
     <main
-      class="w-full flex flex-col lg:grid lg:grid-cols-2 lg:gap-20 gap-9 px-8 lg:px-20"
+      class="w-full flex flex-col lg:grid lg:grid-cols-2 lg:gap-20 gap-9 px-8 lg:px-28"
       v-if="tasks.exercises.length > 0"
     >
       <Pending />
