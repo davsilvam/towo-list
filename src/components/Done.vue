@@ -1,9 +1,9 @@
 <script setup lang="ts">
-  import { useTask } from '../store'
+  import { useExercises } from '../store'
   import { RouterLink } from 'vue-router'
   import ExerciseCard from './ExerciseCard.vue'
 
-  const tasks = useTask()
+  const exercises = useExercises()
 </script>
 
 <template>
@@ -14,10 +14,10 @@
     </header>
     <div class="pt-4 flex flex-col gap-2">
       <ExerciseCard
-        v-for="exercise in tasks.doneExercise"
-        :key="tasks.exercises.indexOf(exercise)"
+        v-for="exercise in exercises.doneExercise"
+        :key="exercises.exercises.indexOf(exercise)"
         :exercise="exercise"
-        :id="tasks.exercises.indexOf(exercise)"
+        :id="exercises.exercises.indexOf(exercise)"
       />
     </div>
   </section>

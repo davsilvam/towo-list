@@ -15,14 +15,15 @@ export interface Exercise {
   completed: boolean
 }
 
-export const useTask = defineStore('tasks', () => {
+export const useExercises = defineStore('exercises', () => {
   const exercises = ref<Exercise[]>(
     JSON.parse(localStorage.getItem('exercises') || '[]')
   )
   const pendingExercises = ref<Exercise[]>([])
   const doneExercise = ref<Exercise[]>([])
-  const editingTask = ref<Exercise>()
+  const editingExercise = ref<Exercise>()
   const editingId = ref<number | unknown>()
+  const deletingExercise = ref<number>(0)
 
   watchEffect(() => {
     pendingExercises.value = exercises.value.filter(
@@ -103,12 +104,13 @@ export const useTask = defineStore('tasks', () => {
 
     exercises.value = filteredExercises
     localStorage.setItem('exercises', JSON.stringify(exercises.value))
+    deletingExercise.value = 0
   }
 
   const editExercise = (index: number): void => {
     const task = ref<Exercise>(exercises.value[index])
     editingId.value = index
-    editingTask.value = task.value
+    editingExercise.value = task.value
   }
 
   const updateExercise = (index: number, exercise: Exercise): void => {
@@ -119,7 +121,7 @@ export const useTask = defineStore('tasks', () => {
   }
 
   const clearEditingExercise = (): void => {
-    editingTask.value = {
+    editingExercise.value = {
       id: undefined,
       title: '',
       category: undefined,
@@ -144,9 +146,10 @@ export const useTask = defineStore('tasks', () => {
     deleteExercise,
     editExercise,
     updateExercise,
-    editingTask,
+    editingExercise,
     editingId,
     clearEditingExercise,
+    deletingExercise,
   }
 })
 
@@ -156,7 +159,7 @@ export interface Modal {
 }
 
 export const useModals = defineStore('modals', () => {
-  const tasks = useTask()
+  const exercises = useExercises()
 
   const addModal = ref<Modal>({
     status: false,
@@ -169,13 +172,21 @@ export const useModals = defineStore('modals', () => {
     toogleModal() {
       this.status = !this.status
       if (!this.status) {
-        tasks.clearEditingExercise()
+        exercises.clearEditingExercise()
       }
+    },
+  })
+
+  const deleteModal = ref<Modal>({
+    status: false,
+    toogleModal() {
+      this.status = !this.status
     },
   })
 
   return {
     addModal,
     editModal,
+    deleteModal,
   }
 })

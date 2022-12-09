@@ -17,6 +17,11 @@
     animation: showModal .5s ease-in-out;
   }
 
+  .short-modal {
+    @apply max-w-md w-10/12 flex flex-col justify-between px-4 pb-6 rounded-lg bg-neutral-900;
+    animation: showModal .5s ease-in-out;
+  }
+
   .label {
     @apply text-sm text-neutral-100;
   }

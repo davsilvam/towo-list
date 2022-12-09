@@ -1,25 +1,26 @@
 <script setup lang="ts">
   import { ref } from 'vue'
-  import { useTask, useModals } from '../store'
+  import { useExercises, useModals } from '../store'
   import { PencilIcon, TrashIcon, CheckIcon } from '@heroicons/vue/20/solid'
 
-  const tasks = useTask()
+  const exercises = useExercises()
   const modals = useModals()
   const props = defineProps(['exercise', 'id'])
 
   const id = ref<number>(props.id)
 
   const incrementCounter = (id: number) => {
-    tasks.incrementCounter(id)
+    exercises.incrementCounter(id)
   }
 
-  const deleteExercise = (id: number) => {
-    tasks.deleteExercise(id)
+  const openDeleteModal = (id: number) => {
+    modals.deleteModal.toogleModal()
+    exercises.deletingExercise = id
   }
 
   const editExercise = () => {
     modals.editModal.toogleModal()
-    tasks.editExercise(id.value)
+    exercises.editExercise(id.value)
   }
 </script>
 
@@ -62,8 +63,8 @@
             @click="editExercise"
           />
           <TrashIcon
-            class="header-icon text-rose-500"
-            @click="deleteExercise(id)"
+            class="header-icon text-red-600"
+            @click="openDeleteModal(id)"
           />
         </nav>
       </div>

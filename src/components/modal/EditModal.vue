@@ -1,31 +1,31 @@
 <script setup lang="ts">
   import { ref, watchEffect } from 'vue'
   import type { Ref } from 'vue'
-  import { useTask, useModals, Exercise } from '../../store'
+  import { useExercises, useModals, Exercise } from '../../store'
   import { XMarkIcon, PencilSquareIcon } from '@heroicons/vue/20/solid'
   import TextExerciseTitle from './inputs/TextExerciseTitleInput.vue'
   import NumberSeries from './inputs/NumberSeriesInput.vue'
   import NumberAmount from './inputs/NumberAmountInput.vue'
   import NumberWeight from './inputs/NumberWeightInput.vue'
 
-  const tasks = useTask()
+  const exercises = useExercises()
   const modals = useModals()
 
   const id: Ref = ref<number>()
   const exercise: Ref = ref<Exercise>()
 
   const getEditingData = (): void => {
-    const editingId = ref(tasks.editingId)
-    const editingTask = ref(tasks.editingTask)
+    const editingId = ref(exercises.editingId)
+    const editingExercise = ref(exercises.editingExercise)
     id.value = editingId.value
-    exercise.value = editingTask.value
+    exercise.value = editingExercise.value
   }
 
   getEditingData()
 
   const setTitle = (title: string) => {
     exercise.value.title = title
-    console.log(tasks.exercises)
+    console.log(exercises.exercises)
   }
 
   const setSeries = (series: number) => {
@@ -64,7 +64,7 @@
 
     const newExercise = exercise.value
 
-    tasks.updateExercise(id.value, newExercise)
+    exercises.updateExercise(id.value, newExercise)
     modals.editModal.toogleModal()
   }
 </script>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { ref, watchEffect } from 'vue'
-  import { useTask, useModals, Exercise, CategoryType } from '../../store'
+  import { useExercises, useModals, Exercise, CategoryType } from '../../store'
   import { XMarkIcon, FolderPlusIcon } from '@heroicons/vue/20/solid'
   import TextExerciseTitle from './inputs/TextExerciseTitleInput.vue'
   import SelectCategory from './inputs/SelectCategoryInput.vue'
@@ -8,11 +8,11 @@
   import NumberAmount from './inputs/NumberAmountInput.vue'
   import NumberWeight from './inputs/NumberWeightInput.vue'
 
-  const tasks = useTask()
+  const exercises = useExercises()
   const modals = useModals()
 
   const exercise = ref<Exercise>({
-    id: tasks.exercises.length,
+    id: exercises.exercises.length,
     title: '',
     category: undefined,
     categories: [],
@@ -96,7 +96,7 @@
 
     const newExercise = exercise.value
 
-    tasks.createExercise(newExercise)
+    exercises.createExercise(newExercise)
     modals.addModal.toogleModal()
   }
 </script>
