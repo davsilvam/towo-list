@@ -28,7 +28,7 @@
     class="flex flex-col w-full lg:max-w-2xl border-l-2 border-yellow-500 rounded-r-md bg-neutral-900"
   >
     <header
-      class="w-full px-4 rounded-tr-md bg-[url('../assets/img/topography-pattern.svg')] bg-opacity-50"
+      class="w-full px-4 rounded-tr-md bg-[url('../assets/img/topography-pattern.svg')]"
     >
       <div
         class="h-fit flex-between py-2 border-b-2"
@@ -38,27 +38,27 @@
         }"
       >
         <p
-          class="text-xs font-semibold"
+          class="text-xs font-semibold px-1.5 py-0.5 rounded-md"
           :class="{
-            'text-yellow-500': props.exercise.completed,
-            'text-neutral-100': !props.exercise.completed,
+            'text-neutral-900 bg-yellow-500': props.exercise.completed,
+            'text-neutral-900 bg-neutral-100': !props.exercise.completed,
           }"
         >
           {{
             exercise.count === exercise.series
-              ? 'Completo'
+              ? 'Concluído'
               : exercise.series - exercise.count === 1
               ? `Faltam ${
                   props.exercise.series - props.exercise.count
-                } série de ${props.exercise.amount}.`
+                } série de ${props.exercise.amount}`
               : `Faltam ${
                   props.exercise.series - props.exercise.count
-                } séries de ${props.exercise.amount}.`
+                } séries de ${props.exercise.amount}`
           }}
         </p>
-        <nav class="flex gap-4">
+        <nav class="flex gap-5">
           <PencilIcon
-            class="header-icon text-yellow-500"
+            class="header-icon text-neutral-100"
             @click="editExercise"
           />
           <TrashIcon
@@ -108,7 +108,7 @@
           </div>
         </div>
       </div>
-      <h3
+      <h4
         class="text-lg font-semibold text-neutral-100"
         :class="{
           'text-yellow-500': props.exercise.completed,
@@ -116,14 +116,14 @@
         }"
       >
         {{ props.exercise.weight + ' Kg' }}
-      </h3>
+      </h4>
     </div>
   </div>
 </template>
 
 <style scoped>
   .header-icon {
-    @apply w-3 cursor-pointer;
+    @apply w-6 p-1 cursor-pointer;
   }
 
   .category {

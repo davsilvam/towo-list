@@ -79,7 +79,7 @@
             <PencilSquareIcon class="w-4" />
           </h3>
           <XMarkIcon
-            class="w-4 text-neutral-100 cursor-pointer"
+            class="w-5 text-neutral-100 cursor-pointer"
             @click="editExercise()"
           />
         </header>
@@ -96,10 +96,10 @@
       </div>
       <input
         :class="[
-          'py-2 border-2 rounded-md border-yellow-500',
+          'font-semibold py-2 border-2 rounded-md border-yellow-500',
           emptyFields
             ? 'text-yellow-500 cursor-not-allowed'
-            : 'bg-yellow-500 text-neutral-100 cursor-pointer',
+            : 'bg-yellow-500 text-neutral-900 cursor-pointer',
         ]"
         type="submit"
         value="Adicionar"

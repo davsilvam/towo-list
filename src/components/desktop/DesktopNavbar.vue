@@ -10,7 +10,7 @@
 
 <template>
   <nav>
-    <ul class="w-full flex flex-col items-stretch gap-10 p-4 group">
+    <ul class="w-full flex flex-col items-stretch gap-10 p-4">
       <hr class="w-full h-px bg-neutral-100" />
       <li>
         <RouterLink class="link" to="/">
@@ -42,7 +42,7 @@
 
 <style scoped>
   .link {
-    @apply min-w-fit h-10 flex-center gap-3 text-neutral-100 font-semibold text-lg rounded-full px-3 py-4 hover-bg;
+    @apply min-w-fit h-10 flex-center gap-3 text-neutral-100 font-semibold text-lg rounded-full px-3 py-4 hover-bg hover:text-neutral-900 ;
   }
 
   .icon {

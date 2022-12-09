@@ -9,10 +9,12 @@
 
   .modal-black {
     @apply absolute z-20 top-0 w-screen h-screen grid-center bg-neutral-800 bg-opacity-75;
+    animation: darkenModalBack .5s ease-in-out;
   }
 
   .modal {
     @apply max-w-lg w-10/12 h-[450px] flex flex-col justify-between px-4 pb-6 rounded-lg bg-neutral-900;
+    animation: showModal .5s ease-in-out;
   }
 
   .label {
@@ -72,4 +74,26 @@ input[type='number']::-webkit-inner-spin-button {
 input[type='number'] {
   -moz-appearance: textfield;
   appearance: textfield;
+}
+
+@keyframes darkenModalBack {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes showModal {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

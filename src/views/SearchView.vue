@@ -18,9 +18,7 @@
 
 <template>
   <div class="w-full min-h-screen flex flex-col gap-9 pb-24">
-    <Header class="px-8">
-      <MagnifyingGlassIcon class="text-yellow-500 w-5" /> Pesquisa
-    </Header>
+    <Header class="px-8"> <MagnifyingGlassIcon class="w-5" /> Pesquisa </Header>
     <main class="w-full grid-center px-8" v-if="tasks.exercises.length > 0">
       <div
         class="w-full lg:w-1/2 flex gap-2 text-neutral-100 px-4 py-2 rounded-md bg-neutral-900"

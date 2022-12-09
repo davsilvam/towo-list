@@ -10,9 +10,7 @@
 
 <template>
   <div class="w-full min-h-screen flex flex-col gap-9 pb-24">
-    <Header class="px-8">
-      <CheckIcon class="text-yellow-500 w-5" /> Concluídos
-    </Header>
+    <Header class="px-8"> <CheckIcon class="w-5" /> Concluídos </Header>
     <main class="w-full grid-center px-8" v-if="tasks.exercises.length > 0">
       <div class="w-full flex flex-col items-center gap-2 pt-4">
         <ExerciseCard

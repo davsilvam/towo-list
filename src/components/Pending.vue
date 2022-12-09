@@ -9,7 +9,7 @@
 <template>
   <section class="w-full flex flex-col">
     <header class="w-full flex-between">
-      <h3 class="text-lg font-bold text-neutral-100">Exercícios pendentes</h3>
+      <h2 class="text-lg font-bold text-yellow-500">Exercícios pendentes</h2>
       <RouterLink class="all-link" to="/pendentes">Ver todos</RouterLink>
     </header>
     <div class="w-full pt-4 flex flex-col gap-2">
