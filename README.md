@@ -1,4 +1,5 @@
 # ToWo List
+
 ## :muscle: **Projeto**
 
 <img src=".github/banner.png">
@@ -12,41 +13,45 @@ A ToWo List é uma aplicação voltado para o registro de suas atividades físic
 </p>
 
 ## :art: **Visual do Projeto**
-### *Desktop e Telas Maiores*
+
+### _Desktop e Telas Maiores_
+
 <h1 align="center">
     <img src="./.github/desktop_screenshots.png" style="width: 80%">
 </h1>
 
-### *Mobile e Telas Menores*
+### _Mobile e Telas Menores_
+
 <h1 align="center">
     <img src="./.github/mobile_screenshots.png" style="width: 80%">
 </h1>
 
 ## :wrench: **Tecnologias**
+
 Tecnologias utilizadas no projeto.
 
 ### :hammer: **Construção do site**
 
-* [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
-* [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
-* [TypeScript](https://www.typescriptlang.org)
-* [Vue.js](https://vuejs.org)
-* [Node e NPM](https://nodejs.org/)
-* [Vite](https://vitejs.dev/)
+- [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
+- [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+- [TypeScript](https://www.typescriptlang.org)
+- [Vue.js](https://vuejs.org)
+- [Node e NPM](https://nodejs.org/)
+- [Vite](https://vitejs.dev/)
 
 ### :art: **Estilização**
 
-* [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
-* [Tailwind CSS](https://tailwindcss.com)
-* [Remixicon](https://remixicon.com)
-* [Google Fonts](https://fonts.google.com)
+- [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+- [Tailwind CSS](https://tailwindcss.com)
+- [Remixicon](https://remixicon.com)
+- [Google Fonts](https://fonts.google.com)
 
 ### :open_file_folder: **IDE, Versionamento e Deploy**
 
-* [Visual Studio Code](https://code.visualstudio.com)
-* [Git](https://git-scm.com)
-* [GitHub](https://github.com)
-* [Vercel](https://vercel.com/)
+- [Visual Studio Code](https://code.visualstudio.com)
+- [Git](https://git-scm.com)
+- [GitHub](https://github.com)
+- [Vercel](https://vercel.com/)
 
 ## :rocket: **Configurações e Instalação**
 
