@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref, watchEffect } from 'vue'
 
-export type CategoryType = 'Superiores' | 'Inferiores' | 'Outros' | unknown
+export type CategoryType = 'Superiores' | 'Inferiores' | unknown
 
 export interface Exercise {
   id: number | unknown

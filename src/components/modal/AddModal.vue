@@ -47,15 +47,18 @@
   const categories = ref<Category[]>([
     {
       title: 'Superiores',
-      subcategories: ['Costas', 'Ombros', 'Tríceps', 'Bíceps'],
+      subcategories: [
+        'Costas',
+        'Ombros',
+        'Tríceps',
+        'Bíceps',
+        'Tórax',
+        'Abdômen',
+      ],
     },
     {
       title: 'Inferiores',
       subcategories: ['Coxas', 'Gêmeos (Panturrilha)', 'Glúteos'],
-    },
-    {
-      title: 'Outros',
-      subcategories: ['Tórax', 'Abdômen'],
     },
   ])
 
