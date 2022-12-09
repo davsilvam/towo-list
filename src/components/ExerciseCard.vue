@@ -97,7 +97,7 @@
           >
             {{ props.exercise.title }}
           </h3>
-          <div class="flex-center gap-2">
+          <div class="flex-center flex-wrap gap-2">
             <p
               v-for="category in exercise.categories"
               :key="exercise.categories.indexOf(category)"
