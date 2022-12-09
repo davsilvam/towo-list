@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { ref, watchEffect } from 'vue'
   import type { Ref } from 'vue'
-  import { useTask, useModals } from '../../store'
+  import { useTask, useModals, Exercise } from '../../store'
   import { XMarkIcon, PencilSquareIcon } from '@heroicons/vue/20/solid'
   import TextExerciseTitle from './inputs/TextExerciseTitleInput.vue'
   import NumberSeries from './inputs/NumberSeriesInput.vue'
@@ -11,11 +11,21 @@
   const tasks = useTask()
   const modals = useModals()
 
-  const id: Ref = ref(tasks.editingId)
-  const exercise: Ref = ref(tasks.editingTask)
+  const id: Ref = ref<number>()
+  const exercise: Ref = ref<Exercise>()
+
+  const getEditingData = (): void => {
+    const editingId = ref(tasks.editingId)
+    const editingTask = ref(tasks.editingTask)
+    id.value = editingId.value
+    exercise.value = editingTask.value
+  }
+
+  getEditingData()
 
   const setTitle = (title: string) => {
     exercise.value.title = title
+    console.log(tasks.exercises)
   }
 
   const setSeries = (series: number) => {
@@ -45,7 +55,7 @@
     emptyFields.value = true
   })
 
-  const addExercise = () => {
+  const editExercise = () => {
     if (emptyFields.value) {
       alert('⚠️ Preencha todos os campos!')
       console.log(exercise.value)
@@ -60,8 +70,8 @@
 </script>
 
 <template>
-  <div class="modal-black" @click.self="modals.editModal.toogleModal()">
-    <form class="modal" @submit.prevent="addExercise()">
+  <div class="modal-black" @click.self="editExercise()">
+    <form class="modal" @submit.prevent="editExercise()">
       <div>
         <header class="py-4 flex-between border-b-2 border-neutral-800">
           <h3 class="flex gap-2 font-semibold text-neutral-100">
@@ -70,7 +80,7 @@
           </h3>
           <XMarkIcon
             class="w-4 text-neutral-100 cursor-pointer"
-            @click="modals.editModal.toogleModal()"
+            @click="editExercise()"
           />
         </header>
         <div class="mt-4 flex flex-col gap-5">

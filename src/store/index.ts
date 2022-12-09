@@ -78,7 +78,7 @@ export const useTask = defineStore('tasks', () => {
   }
 
   const createExercise = (exercise: Exercise): void => {
-    exercises.value.unshift(exercise)
+    exercises.value.push(exercise)
     localStorage.setItem('exercises', JSON.stringify(exercises.value))
     updateExercises()
   }

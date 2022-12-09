@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { ref, onBeforeMount } from 'vue'
+  import { ref } from 'vue'
   import { useModals } from '../../../store'
 
   const modals = useModals()
