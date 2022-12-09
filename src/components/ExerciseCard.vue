@@ -1,9 +1,13 @@
 <script setup lang="ts">
-  import { useTask } from '../store'
+  import { ref } from 'vue'
+  import { useTask, useModals } from '../store'
   import { PencilIcon, TrashIcon, CheckIcon } from '@heroicons/vue/20/solid'
 
   const tasks = useTask()
+  const modals = useModals()
   const props = defineProps(['exercise', 'id'])
+
+  const id = ref<number>(props.id)
 
   const incrementCounter = (id: number) => {
     tasks.incrementCounter(id)
@@ -11,6 +15,11 @@
 
   const deleteExercise = (id: number) => {
     tasks.deleteExercise(id)
+  }
+
+  const editExercise = () => {
+    modals.editModal.toogleModal()
+    tasks.editExercise(id.value)
   }
 </script>
 
@@ -21,10 +30,13 @@
     <header
       class="w-full px-4 rounded-tr-md bg-[url('../assets/img/topography-pattern.svg')] bg-opacity-50"
     >
-      <div class="h-fit flex-between py-2 border-b-2" :class="{
-            'border-yellow-500': props.exercise.completed,
-            'border-neutral-800': !props.exercise.completed,
-          }">
+      <div
+        class="h-fit flex-between py-2 border-b-2"
+        :class="{
+          'border-yellow-500': props.exercise.completed,
+          'border-neutral-800': !props.exercise.completed,
+        }"
+      >
         <p
           class="text-xs font-semibold"
           :class="{
@@ -45,10 +57,13 @@
           }}
         </p>
         <nav class="flex gap-4">
-          <PencilIcon class="header-icon text-yellow-500" />
+          <PencilIcon
+            class="header-icon text-yellow-500"
+            @click="editExercise"
+          />
           <TrashIcon
             class="header-icon text-rose-500"
-            @click="deleteExercise(props.id)"
+            @click="deleteExercise(id)"
           />
         </nav>
       </div>
@@ -57,7 +72,7 @@
       <div class="flex gap-4 items-center py-3">
         <div
           class="cursor-pointer w-5 h-5 flex-center rounded-md bg-neutral-800 hover-ring"
-          @click="incrementCounter(props.id)"
+          @click="incrementCounter(id)"
         >
           <CheckIcon
             class="w-4 text-yellow-500"

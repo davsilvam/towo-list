@@ -1,29 +1,18 @@
 <script setup lang="ts">
-  import { ref } from 'vue'
-  import { useTask } from '../store'
+  import { useTask, useModals } from '../store'
   import { HomeIcon } from '@heroicons/vue/24/outline'
   import Header from '../components/Header.vue'
   import Pending from '../components/Pending.vue'
   import Done from '../components/Done.vue'
-  import AddModal from '../components/AddModal.vue'
   import NoExercises from '../components/NoExercises.vue'
 
   const tasks = useTask()
-
-  const modalOpen = ref(false)
-
-  const openModal = () => {
-    modalOpen.value = true
-  }
-
-  const closeModal = (value: boolean) => {
-    modalOpen.value = value
-  }
+  const modals = useModals()
 </script>
 
 <template>
   <div class="relative w-full min-h-screen flex flex-col gap-9">
-    <Header class="px-8" @openModal="openModal">
+    <Header class="px-8" @openModal="modals.addModal.toogleModal()">
       <HomeIcon class="text-yellow-500 w-5" /> Início
     </Header>
     <main
@@ -34,8 +23,5 @@
       <Done />
     </main>
     <NoExercises v-else />
-    <Teleport to="body">
-      <AddModal v-if="modalOpen" @closeModal="closeModal" />
-    </Teleport>
   </div>
 </template>

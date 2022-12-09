@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { ref, watchEffect } from 'vue'
-  import { useTask, Exercise, CategoryType } from '../store'
+  import { useTask, useModals, Exercise, CategoryType } from '../../store'
   import { XMarkIcon, FolderPlusIcon } from '@heroicons/vue/20/solid'
   import TextExerciseTitle from './inputs/TextExerciseTitleInput.vue'
   import SelectCategory from './inputs/SelectCategoryInput.vue'
@@ -9,9 +9,10 @@
   import NumberWeight from './inputs/NumberWeightInput.vue'
 
   const tasks = useTask()
-  const emits = defineEmits(['closeModal'])
+  const modals = useModals()
 
   const exercise = ref<Exercise>({
+    id: tasks.exercises.length,
     title: '',
     category: undefined,
     categories: [],
@@ -93,16 +94,12 @@
     const newExercise = exercise.value
 
     tasks.createExercise(newExercise)
-    closeModal()
-  }
-
-  const closeModal = () => {
-    emits('closeModal', false)
+    modals.addModal.toogleModal()
   }
 </script>
 
 <template>
-  <div class="modal-black" @click.self="closeModal">
+  <div class="modal-black" @click.self="modals.addModal.toogleModal()">
     <form class="modal" @submit.prevent="addExercise()">
       <div>
         <header class="py-4 flex-between border-b-2 border-neutral-800">
@@ -112,7 +109,7 @@
           </h3>
           <XMarkIcon
             class="w-4 text-neutral-100 cursor-pointer"
-            @click="closeModal"
+            @click="modals.addModal.toogleModal()"
           />
         </header>
         <div class="mt-4 flex flex-col gap-5">

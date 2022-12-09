@@ -1,9 +1,17 @@
 <script setup lang="ts">
-  import { ref } from 'vue'
+  import { ref, onBeforeMount } from 'vue'
+  import { useModals } from '../../../store'
 
+  const modals = useModals()
+
+  const props = defineProps(['exercise'])
   const emits = defineEmits(['exerciseAmount'])
 
   const exerciseAmount = ref<number>()
+
+  if (modals.editModal.status) {
+    exerciseAmount.value = props.exercise.amount
+  }
 
   const inputAmount = () => {
     emits('exerciseAmount', exerciseAmount.value)

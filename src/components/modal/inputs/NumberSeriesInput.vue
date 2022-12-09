@@ -1,9 +1,17 @@
 <script setup lang="ts">
   import { ref } from 'vue'
+  import { useModals } from '../../../store'
 
+  const modals = useModals()
+
+  const props = defineProps(['exercise'])
   const emits = defineEmits(['exerciseSeries'])
 
   const exerciseSeries = ref<number>()
+
+  if (modals.editModal.status) {
+    exerciseSeries.value = props.exercise.series
+  }
 
   const inputSeries = () => {
     emits('exerciseSeries', exerciseSeries.value)
