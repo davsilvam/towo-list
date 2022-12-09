@@ -11,7 +11,7 @@
 </script>
 
 <template>
-  <div class="relative w-full min-h-screen flex flex-col gap-9 pb-6">
+  <div class="relative w-full min-h-screen flex flex-col gap-9 pb-24">
     <Header class="px-8" @openModal="modals.addModal.toogleModal()">
       <HomeIcon class="text-yellow-500 w-5" /> Início
     </Header>

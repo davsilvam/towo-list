@@ -17,7 +17,7 @@
 </script>
 
 <template>
-  <div class="w-full min-h-screen flex flex-col gap-9 pb-6">
+  <div class="w-full min-h-screen flex flex-col gap-9 pb-24">
     <Header class="px-8">
       <MagnifyingGlassIcon class="text-yellow-500 w-5" /> Pesquisa
     </Header>
