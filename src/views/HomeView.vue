@@ -13,7 +13,7 @@
   <div class="relative w-full min-h-screen flex flex-col gap-9 pb-24">
     <Header class="px-8"> <HomeIcon class="w-5" /> Início </Header>
     <main
-      class="w-full flex flex-col lg:grid lg:grid-cols-2 lg:gap-20 gap-9 px-8 lg:px-28"
+      class="w-full flex flex-col lg:grid lg:grid-cols-2 lg:gap-20 gap-9 px-8 lg:px-20"
       v-if="exercises.exercises.length > 0"
     >
       <Pending />

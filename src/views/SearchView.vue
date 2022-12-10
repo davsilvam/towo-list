@@ -9,10 +9,10 @@
   const exercises = useExercises()
 
   const search = ref<string>('')
-  const filteredexercises = ref<Exercise[] | undefined>([])
+  const filteredExercises = ref<Exercise[] | undefined>([])
 
   const filterExercises = (search: string) => {
-    filteredexercises.value = exercises.filterExercise(search)
+    filteredExercises.value = exercises.filterExercise(search)
   }
 </script>
 
@@ -21,7 +21,7 @@
     <Header class="px-8"> <MagnifyingGlassIcon class="w-5" /> Pesquisa </Header>
     <main class="w-full grid-center px-8" v-if="exercises.exercises.length > 0">
       <div
-        class="w-full lg:w-1/2 flex gap-2 text-neutral-100 px-4 py-2 rounded-md bg-neutral-900"
+        class="w-full lg:w-1/2 flex gap-2 text-neutral-100 px-4 py-2 rounded-md bg-neutral-800 border border-yellow-500"
       >
         <MagnifyingGlassIcon class="w-5" />
         <input
@@ -37,7 +37,7 @@
         v-if="exercises.exercises.length > 0"
       >
         <ExerciseCard
-          v-for="exercise in filteredexercises"
+          v-for="exercise in filteredExercises"
           :key="exercises.exercises.indexOf(exercise)"
           :exercise="exercise"
           :id="exercises.exercises.indexOf(exercise)"

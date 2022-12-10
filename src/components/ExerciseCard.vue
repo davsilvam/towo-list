@@ -26,16 +26,16 @@
 
 <template>
   <div
-    class="flex flex-col w-full lg:max-w-2xl border-l-2 border-yellow-500 rounded-r-md bg-neutral-900"
+    class="flex flex-col w-full lg:max-w-2xl border-l-2 border-yellow-500 rounded-r-md bg-neutral-800"
   >
     <header
-      class="w-full px-4 rounded-tr-md bg-[url('../assets/img/topography-pattern.svg')]"
+      class="w-full px-4 rounded-tr-md"
     >
       <div
         class="h-fit flex-between py-2 border-b-2"
         :class="{
           'border-yellow-500': props.exercise.completed,
-          'border-neutral-800': !props.exercise.completed,
+          'border-neutral-900': !props.exercise.completed,
         }"
       >
         <p
@@ -72,7 +72,7 @@
     <div class="group w-full flex-between px-4 rounded-br-md">
       <div class="flex gap-4 items-center py-3">
         <div
-          class="cursor-pointer w-5 h-5 flex-center rounded-md bg-neutral-800 hover-ring"
+          class="cursor-pointer w-5 h-5 flex-center rounded-md bg-neutral-900 hover-ring"
           @click="incrementCounter(id)"
         >
           <CheckIcon

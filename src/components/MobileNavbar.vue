@@ -11,26 +11,26 @@
 <template>
   <nav class="fixed bottom-6 lg:hidden w-full px-8">
     <ul
-      class="w-full flex-between text-neutral-100 px-6 py-3 rounded-3xl bg-neutral-900 bg-opacity-80"
+      class="w-full flex-between text-neutral-100 px-6 py-3 rounded-3xl bg-topography border border-yellow-500 bg-opacity-80"
     >
       <li class="flex-center">
         <RouterLink to="/">
-          <HomeIcon class="w-5" />
+          <HomeIcon class="w-5 text-yellow-500" />
         </RouterLink>
       </li>
       <li class="flex-center">
         <RouterLink to="/pesquisa">
-          <MagnifyingGlassIcon class="w-5" />
+          <MagnifyingGlassIcon class="w-5 text-yellow-500" />
         </RouterLink>
       </li>
       <li class="flex-center">
         <RouterLink to="/pendentes">
-          <ClockIcon class="w-5" />
+          <ClockIcon class="w-5 text-yellow-500" />
         </RouterLink>
       </li>
       <li class="flex-center">
         <RouterLink to="/concluidos">
-          <CheckIcon class="w-5" />
+          <CheckIcon class="w-5 text-yellow-500" />
         </RouterLink>
       </li>
     </ul>

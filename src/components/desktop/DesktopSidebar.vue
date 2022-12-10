@@ -1,10 +1,11 @@
 <script setup lang="ts">
+  import { LightBulbIcon } from '@heroicons/vue/24/outline'
   import DesktopNavbar from './DesktopNavbar.vue'
 </script>
 
 <template>
   <aside
-    class="fixed z-10 right-4 min-w-fit w-20 hidden lg:flex flex-col items-center gap-4 py-8 rounded-lg bg-neutral-900 bg-opacity-80 group"
+    class="fixed left-0 z-10 h-screen w-24 hidden lg:flex-between flex-col py-8 border-r-2 border-yellow-500 bg-topography"
   >
     <img
       class="w-14"
@@ -12,5 +13,6 @@
       alt="Logo da ToWo, com uma figura de uma pessoa levantando um peso no lugar do T."
     />
     <DesktopNavbar />
+    <LightBulbIcon class="cursor-pointer w-5 text-neutral-100" />
   </aside>
 </template>

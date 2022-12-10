@@ -67,6 +67,10 @@
   .hover-bg {
     @apply hover:bg-yellow-500 transition-colors duration-300;
   }
+
+  .bg-topography {
+    background-image: url(./img/topography-pattern.svg);
+  }
 }
 
 * {

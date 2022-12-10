@@ -1,10 +1,12 @@
 <script setup lang="ts">
-  import { PlusCircleIcon } from '@heroicons/vue/20/solid'
+  import { PlusIcon } from '@heroicons/vue/20/solid'
 </script>
 
 <template>
-  <button class="w-fit py-1.5 px-3 flex-center gap-1 rounded-md bg-yellow-500">
-    <span class="text-xs font-bold text-neutral-900">Novo exercício</span>
-    <PlusCircleIcon class="w-4 text-neutral-900" />
+  <button
+    class="flex-center w-fit gap-2 py-1 px-2 lg:py-2 lg:px-4 rounded-md bg-yellow-500"
+  >
+    <PlusIcon class="w-4 lg:w-6 text-neutral-900" />
+    <span class="text-sm lg:text-base font-semibold text-neutral-900">Novo exercício</span>
   </button>
 </template>

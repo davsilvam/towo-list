@@ -11,27 +11,26 @@
 <template>
   <nav>
     <ul class="w-full flex flex-col items-stretch gap-10 p-4">
-      <hr class="w-full h-px bg-neutral-100" />
       <li>
-        <RouterLink class="link" to="/">
+        <RouterLink class="link group" to="/">
           <HomeIcon class="icon" />
           <span class="span">Início</span>
         </RouterLink>
       </li>
       <li>
-        <RouterLink class="link" to="/pesquisa">
+        <RouterLink class="link group" to="/pesquisa">
           <MagnifyingGlassIcon class="icon" />
           <span class="span">Pesquisa</span>
         </RouterLink>
       </li>
       <li>
-        <RouterLink class="link" to="/pendentes">
+        <RouterLink class="link group" to="/pendentes">
           <ClockIcon class="icon" />
           <span class="span">Pendentes</span>
         </RouterLink>
       </li>
       <li>
-        <RouterLink class="link" to="/concluidos">
+        <RouterLink class="link group" to="/concluidos">
           <CheckIcon class="icon" />
           <span class="span">Concluídos</span>
         </RouterLink>
@@ -42,13 +41,13 @@
 
 <style scoped>
   .link {
-    @apply min-w-fit h-10 flex-center gap-3 text-neutral-100 font-semibold text-lg rounded-full px-3 py-4 hover-bg hover:text-neutral-900 ;
+    @apply flex-center flex-col p-1 gap-3 font-semibold text-lg;
   }
 
   .icon {
-    @apply grid-center w-5;
+    @apply grid-center w-5 text-yellow-500;
   }
   .span {
-    @apply hidden group-hover:block text-base;
+    @apply text-transparent group-hover:text-yellow-500 text-xs transition-colors duration-300;
   }
 </style>

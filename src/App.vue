@@ -13,7 +13,7 @@
 <template>
   <div class="relative w-screen flex-between bg-neutral-900">
     <DesktopSidebar />
-    <RouterView class="bg-neutral-800" />
+    <RouterView class="bg-neutral-900 lg:ml-24" />
     <MobileNavbar />
     <Teleport to="body">
       <AddModal v-if="modals.addModal.status" />
