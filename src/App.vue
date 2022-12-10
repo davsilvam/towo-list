@@ -13,7 +13,11 @@
 <template>
   <div class="relative w-screen flex-between bg-neutral-900">
     <DesktopSidebar />
-    <RouterView class="bg-neutral-900 lg:ml-24" />
+    <RouterView class="bg-neutral-900 lg:ml-24" v-slot="{ Component }">
+      <Transition name="fade" mode="out-in">
+        <Component :is="Component" />
+      </Transition>
+    </RouterView>
     <MobileNavbar />
     <Teleport to="body">
       <AddModal v-if="modals.addModal.status" />
@@ -22,3 +26,13 @@
     </Teleport>
   </div>
 </template>
+
+<style>
+  .fade-enter-from, .fade-leave-to {
+    opacity: 0;
+  }
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity 0.5s ease-out;
+  }
+</style>
