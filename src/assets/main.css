@@ -9,17 +9,17 @@
 
   .modal-black {
     @apply absolute z-20 top-0 w-screen h-screen grid-center bg-neutral-800 bg-opacity-75;
-    animation: darkenModalBack .5s ease-in-out;
+    animation: darkenModalBack 0.5s ease-in-out;
   }
 
   .modal {
     @apply max-w-lg w-10/12 h-[450px] flex flex-col justify-between px-4 pb-6 rounded-lg bg-neutral-900;
-    animation: showModal .5s ease-in-out;
+    animation: showModal 0.5s ease-in-out;
   }
 
   .short-modal {
     @apply max-w-md w-10/12 flex flex-col justify-between px-4 pb-6 rounded-lg bg-neutral-900;
-    animation: showModal .5s ease-in-out;
+    animation: showModal 0.5s ease-in-out;
   }
 
   .label {

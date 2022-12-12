@@ -17,13 +17,13 @@ A ToWo List é uma aplicação voltado para o registro de suas atividades físic
 ### _Desktop e Telas Maiores_
 
 <h1 align="center">
-    <img src="./.github/desktop_screenshots.png" style="width: 80%">
+    <img src="./.github/desktop_screenshot.png" style="width: 80%">
 </h1>
 
 ### _Mobile e Telas Menores_
 
 <h1 align="center">
-    <img src="./.github/mobile_screenshots.png" style="width: 80%">
+    <img src="./.github/mobile_screenshot.png" style="width: 50%">
 </h1>
 
 ## :wrench: **Tecnologias**
@@ -43,7 +43,7 @@ Tecnologias utilizadas no projeto.
 
 - [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 - [Tailwind CSS](https://tailwindcss.com)
-- [Remixicon](https://remixicon.com)
+- [Heroicons](https://heroicons.com)
 - [Google Fonts](https://fonts.google.com)
 
 ### :open_file_folder: **IDE, Versionamento e Deploy**
