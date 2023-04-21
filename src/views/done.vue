@@ -6,7 +6,7 @@
   import { CheckIcon } from '@heroicons/vue/24/outline'
 
   // stores
-  import { useExercises } from '../store'
+  import { useExercises } from '../stores'
 
   const { doneExercises, exercises } = useExercises()
 </script>

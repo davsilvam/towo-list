@@ -4,7 +4,7 @@
   import { PlusIcon } from '@heroicons/vue/20/solid'
 
   // stores
-  import { useModals } from '../store'
+  import { useModals } from '../stores'
 
   const { addModal } = useModals()
 </script>

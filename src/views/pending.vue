@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { useExercises } from '../store'
+  import { useExercises } from '../stores'
   import { ClockIcon } from '@heroicons/vue/24/outline'
   import Header from '../components/Header.vue'
   import ExerciseCard from '../components/ExerciseCard.vue'
@@ -20,7 +20,7 @@
         />
       </div>
     </main>
-    
+
     <NoExercises v-else />
   </div>
 </template>

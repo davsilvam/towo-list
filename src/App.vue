@@ -10,7 +10,7 @@
   import { RouterView } from 'vue-router'
 
   // stores
-  import { useModals } from './store'
+  import { useModals } from './stores'
 
   const { addModal, editModal, deleteModal } = useModals()
 </script>

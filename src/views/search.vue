@@ -8,7 +8,7 @@
   import { MagnifyingGlassIcon } from '@heroicons/vue/24/outline'
 
   // stores
-  import { useExercises } from '../store'
+  import { useExercises } from '../stores'
 
   // types
   import { Exercise } from '../@types'

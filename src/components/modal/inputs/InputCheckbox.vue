@@ -3,7 +3,7 @@
   import { CheckIcon } from '@heroicons/vue/20/solid'
 
   // stores
-  import { useCategories } from '../../../store'
+  import { useCategories } from '../../../stores'
 
   const props = defineProps<{ subcategory: string }>()
 

@@ -8,7 +8,7 @@
   import { Cog6ToothIcon, XMarkIcon } from '@heroicons/vue/20/solid'
 
   // stores
-  import { useExercises, useModals } from '../../store'
+  import { useExercises, useModals } from '../../stores'
 
   // types
   import { Exercise } from '../../@types'

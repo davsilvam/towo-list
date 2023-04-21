@@ -3,7 +3,7 @@
   import { ExclamationTriangleIcon } from '@heroicons/vue/20/solid'
 
   // stores
-  import { useExercises, useModals } from '../../store'
+  import { useExercises, useModals } from '../../stores'
 
   const { deleteExercise, deletingExerciseId } = useExercises()
   const { deleteModal } = useModals()

@@ -10,7 +10,7 @@
   } from '@headlessui/vue'
 
   // stores
-  import { useCategories } from '../../../store'
+  import { useCategories } from '../../../stores'
   import { ChevronDownIcon } from '@heroicons/vue/24/outline'
 
   const { categories, setSelectedCategory } = useCategories()

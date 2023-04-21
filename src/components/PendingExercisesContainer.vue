@@ -6,7 +6,7 @@
   import { RouterLink } from 'vue-router'
 
   // stores
-  import { useExercises } from '../store'
+  import { useExercises } from '../stores'
   import { storeToRefs } from 'pinia'
 
   const { pendingExercises } = storeToRefs(useExercises())

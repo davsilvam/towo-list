@@ -3,7 +3,7 @@
   import { PencilIcon, TrashIcon, CheckIcon } from '@heroicons/vue/20/solid'
 
   // stores
-  import { useExercises, useModals } from '../store'
+  import { useExercises, useModals } from '../stores'
   import { storeToRefs } from 'pinia'
 
   // types

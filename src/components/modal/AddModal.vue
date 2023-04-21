@@ -11,7 +11,7 @@
   import { DocumentPlusIcon, XMarkIcon } from '@heroicons/vue/20/solid'
 
   // stores
-  import { useCategories, useExercises, useModals } from '../../store'
+  import { useCategories, useExercises, useModals } from '../../stores'
   import { storeToRefs } from 'pinia'
 
   // uuid
