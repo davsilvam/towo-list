@@ -32,18 +32,15 @@ Tecnologias utilizadas no projeto.
 
 ### :hammer: **Construção do site**
 
-- [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
-- [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [TypeScript](https://www.typescriptlang.org)
 - [Vue.js](https://vuejs.org)
-- [Node e NPM](https://nodejs.org/)
 - [Vite](https://vitejs.dev/)
 
 ### :art: **Estilização**
 
-- [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 - [Tailwind CSS](https://tailwindcss.com)
 - [Heroicons](https://heroicons.com)
+- [Headless UI](https://headlessui.com)
 - [Google Fonts](https://fonts.google.com)
 
 ### :open_file_folder: **IDE, Versionamento e Deploy**
@@ -55,29 +52,23 @@ Tecnologias utilizadas no projeto.
 
 ## :rocket: **Configurações e Instalação**
 
-Veja [documentação de configuração do Vite](https://vitejs.dev/config/) e a instalação do [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar).
+### Requisitos
+- [Node e NPM](https://nodejs.org/)
+- [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
 
-### **Clonando o Projeto**
+Recomendo que veja a [documentação de configuração do Vite](https://vitejs.dev/config/). 
 
 ```sh
+# Clonando o projeto
 git clone https://github.com/davsilvam/towo-list.git
-```
 
-### **Executando o Projeto**
-
-```sh
+# Instalando as dependências
 npm install
-```
 
-### **Compilar e abrir o programa para desenvolvimento**
-
-```sh
+# Compilar e abrir o programa para desenvolvimento
 npm run dev
-```
 
-### **Compilar e reduzir para produção**
-
-```sh
+# Compilar e minificar para produção
 npm run build
 ```
 
