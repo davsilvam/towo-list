@@ -1,24 +1,30 @@
-<script setup lang="ts">
-  import { useExercises, useModals } from '../../store'
+<script lang="ts" setup>
+  // components
   import { ExclamationTriangleIcon } from '@heroicons/vue/20/solid'
 
-  const exercises = useExercises()
-  const modals = useModals()
+  // stores
+  import { useExercises, useModals } from '../../store'
 
-  const deleteExercise = () => {
-    exercises.deleteExercise(exercises.deletingExercise)
-    modals.deleteModal.toogleModal()
+  const { deleteExercise, deletingExerciseId } = useExercises()
+  const { deleteModal } = useModals()
+
+  function handleDeleteExercise() {
+    deleteExercise(deletingExerciseId)
+    deleteModal.toogleModal()
   }
 </script>
 
 <template>
-  <div class="modal-black">
+  <div class="overlay">
     <div class="short-modal gap-2 px-5 py-3">
-      <header class="w-full flex flex-col gap-3 text-lg">
-        <div class="bg-red-500 w-fit p-2 rounded-full">
+      <header class="flex w-full flex-col gap-3 text-lg">
+        <div class="w-fit rounded-full bg-red-500 p-2">
           <ExclamationTriangleIcon class="w-5 flex-grow text-red-900" />
         </div>
-        <h3 class="font-semibold text-neutral-100">Deletar Exercício</h3>
+
+        <strong class="font-semibold text-neutral-100">
+          Deletar Exercício
+        </strong>
       </header>
 
       <p class="text-sm text-neutral-100">
@@ -26,18 +32,19 @@
         mesmo deletar?
       </p>
 
-      <div class="flex-center gap-5 mt-4">
+      <div class="flex-center mt-4 gap-5">
         <button
-          class="w-full py-1 rounded-md font-semibold text-neutral-100 border border-neutral-100 hover:text-neutral-900 hover:bg-neutral-100 transition-colors duration-300"
-          @click="modals.deleteModal.toogleModal()"
+          @click="() => deleteModal.toogleModal()"
+          class="w-full rounded-md border border-neutral-100 py-1 text-sm font-semibold text-neutral-100 transition-colors duration-300 hover:bg-neutral-100 hover:text-neutral-900"
         >
-          Cancelar
+          Não, cancelar
         </button>
+
         <button
-          class="w-full py-1 rounded-md font-semibold text-neutral-100 border border-red-600 bg-red-600 hover:bg-red-800 hover:border-red-800 transition-colors duration-300"
-          @click="deleteExercise"
+          @click="handleDeleteExercise"
+          class="w-full rounded-md border border-red-600 bg-red-600 py-1 text-sm font-semibold text-neutral-100 transition-colors duration-300 hover:border-red-500 hover:bg-red-500"
         >
-          Deletar
+          Sim, deletar
         </button>
       </div>
     </div>

@@ -1,165 +1,179 @@
-<script setup lang="ts">
-  import { ref, watchEffect } from 'vue'
-  import { useExercises, useModals, Exercise, CategoryType } from '../../store'
-  import { XMarkIcon, FolderPlusIcon } from '@heroicons/vue/20/solid'
-  import TextExerciseTitle from './inputs/TextExerciseTitleInput.vue'
-  import SelectCategory from './inputs/SelectCategoryInput.vue'
-  import NumberSeries from './inputs/NumberSeriesInput.vue'
-  import NumberAmount from './inputs/NumberAmountInput.vue'
-  import NumberWeight from './inputs/NumberWeightInput.vue'
+<script lang="ts" setup>
+  import { computed, reactive, ref, watchEffect } from 'vue'
 
-  const exercises = useExercises()
-  const modals = useModals()
+  // components
+  import BaseInput from './inputs/BaseInput.vue'
+  import BaseInputLabel from './inputs/BaseInputLabel.vue'
+  import BaseInputWrapper from './inputs/BaseInputWrapper.vue'
+  import InputCheckbox from './inputs/InputCheckbox.vue'
+  import InputCheckboxWrapper from './inputs/InputCheckboxWrapper.vue'
+  import InputSelect from './inputs/InputSelect.vue'
+  import { DocumentPlusIcon, XMarkIcon } from '@heroicons/vue/20/solid'
 
-  const exercise = ref<Exercise>({
-    id: exercises.exercises.length,
+  // stores
+  import { useCategories, useExercises, useModals } from '../../store'
+  import { storeToRefs } from 'pinia'
+
+  // uuid
+  import { v4 as uuidv4 } from 'uuid'
+
+  // types
+  import { Exercise } from '../../@types'
+
+  const { clearCurrentCategory, subcategoriesSelector } = useCategories()
+  const { currentCategory } = storeToRefs(useCategories())
+  const { createExercise } = useExercises()
+  const { addModal } = useModals()
+
+  const exercise = reactive<Exercise>({
+    id: uuidv4(),
     title: '',
-    category: undefined,
-    categories: [],
-    series: undefined,
-    amount: undefined,
-    weight: undefined,
+    category: currentCategory.value,
+    series: 0,
+    amount: 0,
+    weight: 0,
     count: 0,
     completed: false,
   })
 
-  const setTitle = (title: string) => {
-    exercise.value.title = title
-  }
+  const hasEmptyFields = ref<boolean>(true)
 
-  const setSeries = (series: number) => {
-    exercise.value.series = series
-  }
-
-  const setAmount = (amount: number) => {
-    exercise.value.amount = amount
-  }
-
-  const setWeight = (weight: number) => {
-    exercise.value.weight = weight
-  }
-
-  interface Category {
-    title: string
-    subcategories: string[]
-  }
-
-  const categories = ref<Category[]>([
-    {
-      title: 'Superiores',
-      subcategories: [
-        'Costas',
-        'Ombros',
-        'Tríceps',
-        'Bíceps',
-        'Tórax',
-        'Abdômen',
-      ],
-    },
-    {
-      title: 'Inferiores',
-      subcategories: ['Coxas', 'Panturrilha', 'Glúteos'],
-    },
-  ])
-
-  const currentCategory = ref<Category>()
-
-  const setCategory = (categoryName: CategoryType) => {
-    exercise.value.category = categoryName
-    currentCategory.value = categories.value.find(
-      (category) => category.title === categoryName
+  const areAllFieldsFilledIn = computed(() =>
+    Boolean(
+      exercise.title &&
+        exercise.category.name &&
+        exercise.category.subcategories.length > 0 &&
+        exercise.series &&
+        exercise.amount &&
+        exercise.weight
     )
-  }
-
-  const emptyFields = ref<boolean>(true)
+  )
 
   watchEffect(() => {
-    if (
-      exercise.value.title &&
-      exercise.value.category &&
-      exercise.value.categories.length > 0 &&
-      exercise.value.series &&
-      exercise.value.amount &&
-      exercise.value.weight
-    ) {
-      emptyFields.value = false
+    if (areAllFieldsFilledIn.value) {
+      hasEmptyFields.value = false
       return
     }
-    emptyFields.value = true
+
+    hasEmptyFields.value = true
   })
 
-  const addExercise = () => {
-    if (emptyFields.value) {
-      alert('⚠️ Preencha todos os campos!')
-      return
-    }
+  function closeAddExerciseModal() {
+    addModal.toogleModal()
+    clearCurrentCategory()
+  }
 
-    const newExercise = exercise.value
-
-    exercises.createExercise(newExercise)
-    modals.addModal.toogleModal()
+  function addExercise() {
+    createExercise(exercise)
+    closeAddExerciseModal()
   }
 </script>
 
 <template>
-  <div class="modal-black" @click.self="modals.addModal.toogleModal()">
-    <form class="modal" @submit.prevent="addExercise()">
+  <div class="overlay" @click.self="closeAddExerciseModal">
+    <form class="modal" @submit.prevent="addExercise">
       <div>
-        <header class="py-4 flex-between border-b-2 border-neutral-800">
-          <h3 class="flex gap-2 font-semibold text-neutral-100">
+        <header class="flex-between border-b-2 border-neutral-800 py-4">
+          <strong class="flex gap-2 font-semibold text-neutral-100">
+            <DocumentPlusIcon class="w-4" />
             Novo Exercício
-            <FolderPlusIcon class="w-4" />
-          </h3>
-          <XMarkIcon
-            class="w-5 text-neutral-100 cursor-pointer"
-            @click="modals.addModal.toogleModal()"
-          />
+          </strong>
+
+          <button
+            @click="closeAddExerciseModal"
+            aria-label="fechar modal"
+            class="rounded p-1 transition-colors hover:bg-neutral-800"
+          >
+            <XMarkIcon class="w-5 cursor-pointer text-neutral-100" />
+          </button>
         </header>
+
         <div class="mt-4 flex flex-col gap-5">
           <div class="grid grid-cols-3 gap-4">
-            <TextExerciseTitle @exerciseTitle="setTitle" />
-            <SelectCategory :categories="categories" @category="setCategory" />
+            <BaseInputWrapper class="col-span-2">
+              <BaseInputLabel id="title">Nome do exercício</BaseInputLabel>
+              <BaseInput
+                v-model="exercise.title"
+                class="w-full"
+                id="title"
+                placeholder="Supino inclinado"
+                type="text"
+              />
+            </BaseInputWrapper>
+
+            <BaseInputWrapper>
+              <BaseInputLabel id="title">Categorias</BaseInputLabel>
+              <InputSelect />
+            </BaseInputWrapper>
           </div>
-          <div v-if="currentCategory" class="flex flex-col gap-2 items-center">
-            <h3 class="label">Músculos Trabalhados</h3>
-            <div
-              class="flex flex-wrap items-center justify-center gap-y-2 gap-x-8"
-            >
-              <div
-                class="flex items-center justify-center gap-2"
-                v-for="category in currentCategory?.subcategories"
+
+          <div
+            v-if="currentCategory.name"
+            class="flex flex-col items-center gap-2"
+          >
+            <strong class="text-sm text-neutral-100">
+              Músculos Trabalhados
+            </strong>
+
+            <InputCheckboxWrapper>
+              <InputCheckbox
+                v-for="subcategory in subcategoriesSelector[
+                  currentCategory.name
+                ]"
+                :subcategory="subcategory"
+                :key="subcategory"
               >
-                <input
-                  :key="currentCategory?.subcategories.indexOf(category)"
-                  :value="category"
-                  :id="category"
-                  v-model="exercise.categories"
-                  type="checkbox"
-                  class="peer appearance-none relative w-4 h-4 border border-neutral-700 rounded-sm focus:outline-none checked:bg-yellow-500 checked:border-yellow-500 hover-ring"
-                />
-                <label class="text-white text-sm" :for="category">{{
-                  category
-                }}</label>
-              </div>
-            </div>
+                {{ subcategory }}
+              </InputCheckbox>
+            </InputCheckboxWrapper>
           </div>
-          <div class="grid grid-cols-3 place-items-center">
-            <NumberSeries @exerciseSeries="setSeries" />
-            <NumberAmount @exerciseAmount="setAmount" />
-            <NumberWeight @exerciseWeight="setWeight" />
+
+          <div
+            class="flex w-full items-center justify-between gap-8 max-sm:gap-3"
+          >
+            <BaseInputWrapper>
+              <BaseInputLabel id="series">Séries</BaseInputLabel>
+              <BaseInput
+                v-model="exercise.series"
+                class="w-32 max-sm:w-20"
+                id="series"
+                placeholder="4x"
+                type="number"
+              />
+            </BaseInputWrapper>
+
+            <BaseInputWrapper>
+              <BaseInputLabel id="amount">Quantidade</BaseInputLabel>
+              <BaseInput
+                v-model="exercise.amount"
+                class="w-32 max-sm:w-20"
+                id="amount"
+                placeholder="10"
+                type="number"
+              />
+            </BaseInputWrapper>
+
+            <BaseInputWrapper>
+              <BaseInputLabel id="weight">Peso</BaseInputLabel>
+              <BaseInput
+                v-model="exercise.weight"
+                class="w-32 max-sm:w-20"
+                id="weight"
+                placeholder="20kg"
+                type="number"
+              />
+            </BaseInputWrapper>
           </div>
         </div>
       </div>
-      <input
-        :class="[
-          'font-semibold py-2 border-2 rounded-md border-yellow-500',
-          emptyFields
-            ? 'text-yellow-500 cursor-not-allowed'
-            : 'bg-yellow-500 text-neutral-900 cursor-pointer',
-        ]"
-        type="submit"
-        value="Adicionar"
-      />
+
+      <button
+        aria-label="adicionar exercício"
+        class="cursor-pointer rounded-md border-2 border-yellow-500 bg-yellow-500 py-2 text-sm font-bold text-neutral-900 disabled:cursor-not-allowed disabled:bg-neutral-900 disabled:text-yellow-500 disabled:opacity-50"
+        :disabled="hasEmptyFields"
+      >
+        Adicionar Exercício
+      </button>
     </form>
   </div>
 </template>

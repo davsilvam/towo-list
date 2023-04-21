@@ -1,29 +1,27 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-const router = createRouter({
+export const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
       path: '/',
-      name: 'Home',
-      component: () => import('../views/HomeView.vue'),
+      name: 'Início',
+      component: () => import('../views/index.vue'),
     },
     {
       path: '/pendentes',
-      name: 'Pending',
-      component: () => import('../views/PendingView.vue'),
+      name: 'Pendentes',
+      component: () => import('../views/pending.vue'),
     },
     {
       path: '/concluidos',
-      name: 'Done',
-      component: () => import('../views/DoneView.vue'),
+      name: 'Concluídos',
+      component: () => import('../views/done.vue'),
     },
     {
       path: '/pesquisa',
-      name: 'Search',
-      component: () => import('../views/SearchView.vue'),
+      name: 'Pesquisa',
+      component: () => import('../views/search.vue'),
     },
   ],
 })
-
-export default router

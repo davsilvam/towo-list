@@ -1,108 +1,112 @@
-<script setup lang="ts">
-  import { ref } from 'vue'
-  import { useExercises, useModals } from '../store'
+<script lang="ts" setup>
+  // components
   import { PencilIcon, TrashIcon, CheckIcon } from '@heroicons/vue/20/solid'
 
-  const exercises = useExercises()
-  const modals = useModals()
-  const props = defineProps(['exercise', 'id'])
+  // stores
+  import { useExercises, useModals } from '../store'
+  import { storeToRefs } from 'pinia'
 
-  const id = ref<number>(props.id)
+  // types
+  import { Exercise } from '../@types'
 
-  const incrementCounter = (id: number) => {
-    exercises.incrementCounter(id)
+  interface ExerciseCardProps {
+    exercise: Exercise
   }
 
-  const openDeleteModal = (id: number) => {
-    modals.deleteModal.toogleModal()
-    exercises.deletingExercise = id
+  const props = defineProps<ExerciseCardProps>()
+
+  const { editExercise, incrementExerciseSerieCounter } = useExercises()
+  const { deletingExerciseId } = storeToRefs(useExercises())
+  const { deleteModal, editModal } = useModals()
+
+  function openDeleteExerciseModal() {
+    deleteModal.toogleModal()
+    deletingExerciseId.value = props.exercise.id
   }
 
-  const editExercise = () => {
-    modals.editModal.toogleModal()
-    exercises.editExercise(id.value)
+  function openEditExerciseModal() {
+    editModal.toogleModal()
+    editExercise(props.exercise.id)
   }
 </script>
 
 <template>
   <div
-    class="flex flex-col w-full lg:max-w-2xl border-l-2 border-yellow-500 rounded-r-md bg-neutral-800"
+    class="flex w-full flex-col rounded-r-md border-l-2 border-yellow-500 bg-neutral-800 lg:max-w-2xl"
   >
-    <header
-      class="w-full px-4 rounded-tr-md"
-    >
+    <header class="w-full rounded-tr-md px-4">
       <div
-        class="h-fit flex-between py-2 border-b-2"
-        :class="{
-          'border-yellow-500': props.exercise.completed,
-          'border-neutral-900': !props.exercise.completed,
-        }"
+        class="flex-between h-fit border-b-2 py-2"
+        :class="[
+          exercise.completed ? 'border-yellow-500' : 'border-neutral-900',
+        ]"
       >
         <p
-          class="text-xs font-semibold px-1.5 py-0.5 rounded-md"
-          :class="{
-            'text-neutral-900 bg-yellow-500': props.exercise.completed,
-            'text-neutral-900 bg-neutral-100': !props.exercise.completed,
-          }"
+          class="rounded-md px-1.5 py-0.5 text-xs font-semibold"
+          :class="[
+            exercise.completed
+              ? 'bg-yellow-500 text-neutral-900'
+              : 'bg-neutral-100 text-neutral-900',
+          ]"
         >
           {{
             exercise.count === exercise.series
               ? 'Concluído'
               : exercise.series - exercise.count === 1
-              ? `Faltam ${
-                  props.exercise.series - props.exercise.count
-                } série de ${props.exercise.amount}`
-              : `Faltam ${
-                  props.exercise.series - props.exercise.count
-                } séries de ${props.exercise.amount}`
+              ? `Faltam ${exercise.series - exercise.count} série de ${
+                  exercise.amount
+                }`
+              : `Faltam ${exercise.series - exercise.count} séries de ${
+                  exercise.amount
+                }`
           }}
         </p>
-        <nav class="flex gap-5">
+
+        <div class="flex gap-5">
           <PencilIcon
-            class="header-icon text-neutral-100"
-            @click="editExercise"
+            @click="openEditExerciseModal"
+            class="w-6 cursor-pointer p-1 text-neutral-100"
           />
+
           <TrashIcon
-            class="header-icon text-red-600"
-            @click="openDeleteModal(id)"
+            @click="openDeleteExerciseModal"
+            class="w-6 cursor-pointer p-1 text-red-600"
           />
-        </nav>
+        </div>
       </div>
     </header>
-    <div class="group w-full flex-between px-4 rounded-br-md">
-      <div class="flex gap-4 items-center py-3">
+
+    <div class="flex-between group w-full rounded-br-md px-4">
+      <div class="flex items-center gap-4 py-3">
         <div
-          class="cursor-pointer w-5 h-5 flex-center rounded-md bg-neutral-900 hover-ring"
-          @click="incrementCounter(id)"
+          class="flex-center hover-ring h-5 w-5 cursor-pointer rounded-md bg-neutral-900"
+          @click="() => incrementExerciseSerieCounter(exercise.id)"
         >
           <CheckIcon
             class="w-4 text-yellow-500"
-            :class="{ hidden: !props.exercise.completed }"
+            :class="{ hidden: !exercise.completed }"
           />
-          <span
-            class="hidden text-xs text-neutral-700"
-            :class="{ 'group-hover:block': !props.exercise.completed }"
-            >+1</span
-          >
         </div>
+
         <div class="flex flex-col gap-1.5">
-          <h3
+          <strong
             :class="[
               'text-sm font-semibold',
               {
-                'text-yellow-500': props.exercise.completed,
-                'text-neutral-100': !props.exercise.completed,
-                'line-through': props.exercise.completed,
+                'text-yellow-500': exercise.completed,
+                'text-neutral-100': !exercise.completed,
+                'line-through': exercise.completed,
               },
             ]"
           >
-            {{ props.exercise.title }}
-          </h3>
-          <div class="w-52 xl:w-80 flex flex-wrap gap-2">
+            {{ exercise.title }}
+          </strong>
+
+          <div class="flex w-52 flex-wrap gap-2 xl:w-80">
             <p
-              v-for="category in exercise.categories"
-              :key="exercise.categories.indexOf(category)"
-              class="category"
+              v-for="category in exercise.category.subcategories"
+              class="w-fit rounded-md bg-yellow-500 px-2 py-px text-center text-[10px] font-semibold text-neutral-900"
+              :key="category"
             >
               {{ category }}
             </p>
@@ -112,22 +116,12 @@
       <h4
         class="text-lg font-semibold text-neutral-100"
         :class="{
-          'text-yellow-500': props.exercise.completed,
-          'text-neutral-100': !props.exercise.completed,
+          'text-yellow-500': exercise.completed,
+          'text-neutral-100': !exercise.completed,
         }"
       >
-        {{ props.exercise.weight + ' Kg' }}
+        {{ exercise.weight + ' Kg' }}
       </h4>
     </div>
   </div>
 </template>
-
-<style scoped>
-  .header-icon {
-    @apply w-6 p-1 cursor-pointer;
-  }
-
-  .category {
-    @apply w-fit text-[10px] font-semibold text-center text-neutral-900 px-2 py-px rounded-md bg-yellow-500;
-  }
-</style>

@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    font-family: 'Sora', sans-serif;
+  }
+
+  input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+}
+
+@layer components {
+  .overlay {
+    @apply grid-center absolute top-0 z-20 h-screen w-screen bg-neutral-800 bg-opacity-75;
+    animation: fadeOverlay 0.5s ease-in-out;
+  }
+
+  .modal {
+    @apply flex h-[450px] w-10/12 max-w-lg flex-col justify-between rounded-lg bg-neutral-900 px-4 pb-6;
+    animation: showModal 0.5s ease-in-out;
+  }
+
+  .short-modal {
+    @apply flex w-10/12 max-w-md flex-col justify-between rounded-lg bg-neutral-900 px-4 pb-6;
+    animation: showModal 0.5s ease-in-out;
+  }
+}
+
+@layer utilities {
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .flex-between {
+    @apply flex items-center justify-between;
+  }
+
+  .grid-center {
+    @apply grid place-items-center;
+  }
+
+  .hover-ring {
+    @apply outline-none ring-1 ring-transparent transition-colors duration-300 hover:ring-yellow-500;
+  }
+
+  .focus-ring {
+    @apply outline-none ring-1 ring-transparent transition-colors duration-300 focus:ring-yellow-500;
+  }
+
+  .hover-bg {
+    @apply transition-colors duration-300 hover:bg-yellow-500;
+  }
+
+  .bg-topography {
+    background-image: url(../assets/img/topography-pattern.svg);
+  }
+
+  @keyframes fadeOverlay {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes showModal {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
