@@ -1,8 +1,8 @@
 # ToWo List
 
-## :muscle: **Projeto**
-
 <img src=".github/banner.png">
+
+## :muscle: **Projeto**
 
 > Cansado de se cansar contando enquanto devia estar praticando seus exercícios? Chega de roubar nas séries e enganar o Personal, a ToWo está aqui!
 
