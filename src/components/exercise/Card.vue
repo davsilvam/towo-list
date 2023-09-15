@@ -21,7 +21,7 @@ interface ExerciseCardEmits {
     :class="[exercise.series.some((serie) => serie === false) ? '' : 'opacity-50']"
   >
     <header class="flex w-full items-center justify-between">
-      <div class="w-fit rounded-2xl bg-yellow-500/20 px-4 py-1.5 text-xs font-semibold text-yellow-400">
+      <div class="w-fit rounded-2xl bg-green-500/20 px-4 py-1.5 text-xs font-semibold text-green-400">
         {{ exercise.category }}
       </div>
 

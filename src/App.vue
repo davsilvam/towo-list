@@ -47,7 +47,7 @@ const { exercise, exercises, isFormFilled, setExerciseCategory, createExercise, 
           <Input.Select @update:category="setExerciseCategory" />
         </Input.Wrapper>
 
-        <button :disabled="!isFormFilled" class="col-span-2 flex items-center justify-center gap-2 rounded-md bg-yellow-400 px-6 py-3 font-semibold text-neutral-950 transition-colors active:hover:bg-yellow-300 disabled:opacity-50 max-sm:w-full">
+        <button :disabled="!isFormFilled" class="col-span-2 flex items-center justify-center gap-2 rounded-md bg-green-400 px-6 py-3 font-semibold text-neutral-950 transition-colors active:hover:bg-green-300 disabled:opacity-50 max-sm:w-full">
           <span class="hidden max-sm:block xl:block">
             Novo Exercício
           </span>
