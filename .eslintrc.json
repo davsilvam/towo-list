@@ -1,0 +1,9 @@
+{
+  "extends": ["@antfu", "plugin:tailwindcss/recommended"],
+  "rules": {
+    "@typescript-eslint/consistent-type-imports": "off",
+    "vue/no-deprecated-slot-attribute": "off",
+    "vue/no-reserved-component-names": "off"
+  },
+  "plugins": ["tailwindcss"]
+}
