@@ -1,83 +1,18 @@
-# ToWo List
+# Vue 3 + TypeScript + Vite
 
-<img src=".github/banner.png">
+This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
-## :muscle: **Projeto**
+## Recommended IDE Setup
 
-> Cansado de se cansar contando enquanto devia estar praticando seus exercícios? Chega de roubar nas séries e enganar o Personal, a ToWo está aqui!
+- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-A ToWo List é uma aplicação voltado para o registro de suas atividades físicas, especificamente, atividades que envolvam séries de exercícios. Com ela, você registra a quantidade de repetições por série da sua atividade e acompanha seu progresso até a conclusão da atividade.
+## Type Support For `.vue` Imports in TS
 
-<p align="center">
-   <a href="https://towo-list.vercel.app">Veja o projeto completo aqui.</a>
-</p>
+TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
 
-## :art: **Visual do Projeto**
+If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
 
-### _Desktop e Telas Maiores_
-
-<h1 align="center">
-    <img src="./.github/desktop_screenshot.png" style="width: 80%">
-</h1>
-
-### _Mobile e Telas Menores_
-
-<h1 align="center">
-    <img src="./.github/mobile_screenshot.png" style="width: 50%">
-</h1>
-
-## :wrench: **Tecnologias**
-
-Tecnologias utilizadas no projeto.
-
-### :hammer: **Construção do site**
-
-- [TypeScript](https://www.typescriptlang.org)
-- [Vue.js](https://vuejs.org)
-- [Vite](https://vitejs.dev/)
-
-### :art: **Estilização**
-
-- [Tailwind CSS](https://tailwindcss.com)
-- [Heroicons](https://heroicons.com)
-- [Headless UI](https://headlessui.com)
-- [Google Fonts](https://fonts.google.com)
-
-### :open_file_folder: **IDE, Versionamento e Deploy**
-
-- [Visual Studio Code](https://code.visualstudio.com)
-- [Git](https://git-scm.com)
-- [GitHub](https://github.com)
-- [Vercel](https://vercel.com/)
-
-## :rocket: **Configurações e Instalação**
-
-### Requisitos
-- [Node e NPM](https://nodejs.org/)
-- [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
-
-Recomendo que veja a [documentação de configuração do Vite](https://vitejs.dev/config/). 
-
-```sh
-# Clonando o projeto
-git clone https://github.com/davsilvam/towo-list.git
-
-# Instalando as dependências
-npm install
-
-# Compilar e abrir o programa para desenvolvimento
-npm run dev
-
-# Compilar e minificar para produção
-npm run build
-```
-
-## :balance_scale: **Licença**
-
-Esse projeto está sob a [licença MIT](https://github.com/davsilvam/towo-list/blob/main/LICENSE.md).
-
-<p align="center">
-  Feito com :blue_heart: por <a href="https://www.linkedin.com/in/davsilvam/">David Silva</a>.
-</p>
-
----
+1. Disable the built-in TypeScript Extension
+   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
+   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
+2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
