@@ -25,19 +25,20 @@ watchEffect(() => {
 <template>
   <div class="relative">
     <Listbox v-model="category">
-      <ListboxButton v-slot="{ value }" class="flex w-[200px] items-center justify-between rounded-lg border border-neutral-700 bg-neutral-900 p-2 text-neutral-50">
+      <ListboxButton v-slot="{ value }" class="flex w-full items-center justify-between gap-5 rounded-lg border border-neutral-700 bg-neutral-900 p-2 text-neutral-50 lg:w-40 xl:w-[200px]">
         {{ value }} <ChevronDown class="h-5 w-5" />
       </ListboxButton>
 
       <ListboxOptions
-        class="absolute top-12 w-[200px] rounded-lg border border-neutral-700 bg-neutral-900 p-2 text-sm text-neutral-50"
+        class="absolute top-12 z-10 w-[200px] rounded-lg border border-neutral-700 bg-neutral-900 p-2 text-sm"
       >
         <ListboxOption
           v-for="(option, index) in options"
           v-slot="{ selected }"
           :key="index"
           :value="option"
-          class="flex items-center justify-between rounded p-2 outline-none hover:bg-neutral-800 focus:bg-neutral-800"
+          class="flex items-center justify-between rounded p-2 outline-none hover:bg-neutral-800 hover:text-neutral-50 focus:bg-neutral-800"
+          :class="[category === option ? 'text-neutral-50' : 'text-neutral-400']"
         >
           <p>{{ option }}</p>
           <Check v-if="selected" class="h-4 w-4" />
