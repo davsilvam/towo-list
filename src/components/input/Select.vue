@@ -30,7 +30,7 @@ watchEffect(() => {
       </ListboxButton>
 
       <ListboxOptions
-        class="absolute top-12 z-10 w-[200px] rounded-lg border border-neutral-700 bg-neutral-900 p-2 text-sm"
+        class="absolute top-12 z-10 w-full rounded-lg border border-neutral-700 bg-neutral-900 p-2 text-sm xl:w-[200px]"
       >
         <ListboxOption
           v-for="(option, index) in options"
