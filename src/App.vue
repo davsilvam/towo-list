@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { Plus } from 'lucide-vue-next'
 
+import gradient_src from './assets/gradient.svg'
+import gradient_2_src from './assets/gradient-2.svg'
 import { ExerciseCard, ExerciseContainer, Input } from './components'
 import { useExercises } from './composables'
 
@@ -8,7 +10,10 @@ const { exercise, exercises, isFormFilled, setExerciseCategory, createExercise, 
 </script>
 
 <template>
-  <main class="relative flex min-h-screen flex-col gap-10 bg-neutral-900 px-8 py-20 text-neutral-50 md:px-16 lg:px-20 xl:px-40">
+  <main class="relative flex min-h-screen flex-col gap-10 overflow-hidden bg-neutral-900 px-8 py-20 text-neutral-50 md:px-16 lg:px-20 xl:px-40">
+    <img :src="gradient_src" class="absolute left-[-20%] sm:left-0 opacity-50">
+    <img :src="gradient_2_src" class="absolute bottom-[-35%] sm:bottom-[-120%] opacity-50">
+
     <div class="space-y-8">
       <h1 class="text-4xl font-semibold">
         ToWo List
