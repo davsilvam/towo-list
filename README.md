@@ -2,6 +2,19 @@
 
 <img src="./.github/banner.png" />
 
+## :bookmark: **Sumário**
+- [Sobre o Projeto](#weight_lifting_man-sobre-o-projeto)
+- [Visual do Projeto](#art-visual-do-projeto)
+   - [Desktop e Telas Maiores](#desktop-e-telas-maiores)
+   - [Mobile e Telas Menores](#mobile-e-telas-menores)
+- [Tecnologias](#wrench-tecnologias)
+   - [Construção do site](#construção-do-site)
+   - [Estilização](#estilização)
+   - [IDE, Versionamento e Deploy](#ide-versionamento-e-deploy)
+- [Configurações e Instalação](#rocket-configurações-e-instalação)
+     - [Requisitos](#requisitos)
+- [Licença](#balance_scale-licença)
+
 ## :weight_lifting_man: **Sobre o Projeto**
 
 ToWo List é uma aplicação que visa registrar séries de atividades a serem realizadas, com o objetivo de ajudar o usuário a organizar suas tarefas e a gerenciar seu tempo.
@@ -29,7 +42,7 @@ ToWo List é uma aplicação que visa registrar séries de atividades a serem re
 
 Tecnologias utilizadas no projeto.
 
-### :hammer: **Construção do site**
+### **Construção do site**
 
 - [TypeScript](https://www.typescriptlang.org)
 - [Vue 3](https://vuejs.org)
@@ -37,12 +50,12 @@ Tecnologias utilizadas no projeto.
 - [Radix Vue](https://www.radix-vue.com)
 - [Headless UI](https://headlessui.com)
 
-### :art: **Estilização**
+### **Estilização**
 
 - [Tailwind CSS](https://tailwindcss.com)
 - [Lucide Icons](https://lucide.dev)
 
-### :open_file_folder: **IDE, Versionamento e Deploy**
+### **IDE, Versionamento e Deploy**
 
 - [Visual Studio Code](https://code.visualstudio.com)
 - [Git](https://git-scm.com)
@@ -74,6 +87,15 @@ pnpm run build
 ## :balance_scale: **Licença**
 
 Esse projeto está sob a [licença MIT](https://github.com/davsilvam/towo-list/blob/main/LICENSE.md).
+
+---
+
+Feito com 💚 e ☕ por <a href="https://www.linkedin.com/in/davsilvam/">David Silva</a>.
+
+> [Portfólio](https://davidsilvam.vercel.app) &nbsp;&middot;&nbsp;
+> GitHub [@davsilvam](https://github.com/davsilvam) &nbsp;&middot;&nbsp;
+> Instagram [@davsilvam_](https://www.instagram.com/davsilvam_/)
+
 
 <p align="center">
   Feito com 💚 e ☕ por <a href="https://www.linkedin.com/in/davsilvam/">David Silva</a>.
